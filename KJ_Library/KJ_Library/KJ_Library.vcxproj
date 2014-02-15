@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{DE9D034D-CDB0-4EF8-953E-067DB406D6CB}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>KJ_Library</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;C:\Program Files\Autodesk\FBX\FBX SDK\2014.2\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;C:\Program Files\Autodesk\FBX\FBX SDK\2014.2\lib\vs2012\x86\debug;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>C:\Program Files\Autodesk\FBX\FBX SDK\2014.2\include;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files\Autodesk\FBX\FBX SDK\2014.2\lib\vs2012\x86\release;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>libfbxsdk-mt.lib;libfbxsdk-md.lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <MinimalRebuild>false</MinimalRebuild>
+      <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>libfbxsdk-md.lib;libfbxsdk-mt.lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="sorce\KJ_Lib\Application.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Camera\CameraManager.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Camera\KJ_Camera.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Debug\KJ_Debug.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_File\KJ_File.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Framework\KJ_Framework.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_GameLogic\KJ_BaseGameLogic3D\BaseGameLogic3D.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Graph\Graph\Graph.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Graph\NodeEdge\NodeEdge.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Input\InputData.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Light\Light.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Mesh\KJ_BasicForm\KJ_BasicForm.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Mesh\KJ_HardenedMesh\KJ_HardenedMesh.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Mesh\KJ_Mesh.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Mesh\KJ_MeshLoader\FBX.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Mesh\KJ_MeshLoader\FBXLoader.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Mesh\KJ_MeshLoader\MQO.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Mesh\MeshProperty.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Mesh\KJ_SkinMesh\KJ_SkinMesh.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Process\Process.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Process\ProcessManager.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Renderer\KJ_DirectX\KJ_DirectX3D.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Renderer\KJ_Renderer.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Renderer\KJ_RendererSystem.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Resource\AllResourceManager.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Scene\AllScenes\TestScene.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Scene\KJ_SceneSystem.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Sorting\Octree\Octree.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Sorting\Octree\OctreeNode.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Sorting\QuickSort\QuickSort.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Texture\KJ_Texture.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Windows\KJ_Window.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Windows\KJ_WindowSystem.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\TextLoader\textLoader.cpp" />
+    <ClCompile Include="sorce\TestGame\TestGame.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Shader\PSBufferAndMethods.h" />
+    <ClInclude Include="Shader\PSLight.h" />
+    <ClInclude Include="Shader\PSMaterial.h" />
+    <ClInclude Include="Shader\PSMethodDefinition.h" />
+    <ClInclude Include="sorce\KJ_Lib\Application.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Actor\Actor.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Camera\CameraManager.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Camera\KJ_Camera.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Debug\KJ_Debug.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Defines\KJ_Defines.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_File\KJ_File.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Framework\KJ_Framework.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_GameLogic\KJ_BaseGameLogic2D\BaseGameLogic2D.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_GameLogic\KJ_BaseGameLogic3D\BaseGameLogic3D.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_GameObject\KJ_GameObject.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_GenericPrg\KJ_GenericPrg.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_GenericPrg\KJ_HashTable.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Graph\Graph\Graph.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Graph\NodeEdge\NodeEdge.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Input\InputData.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Input\InputDevice.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Interface\KJ_Interface.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Light\Light.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Math\KJ_Math.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Math\KJ_MathDefines.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Math\KJ_Matrix.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Math\KJ_Point.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Math\KJ_Quaternion.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Math\KJ_Vector.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Mesh\KJ_BasicForm\KJ_BasicForm.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Mesh\KJ_HardenedMesh\KJ_HardenedMesh.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Mesh\KJ_Mesh.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Mesh\KJ_MeshLoader\FBXLoader.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Mesh\MeshProperty.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Mesh\KJ_SkinMesh\KJ_SkinMesh.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Process\Process.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Process\ProcessManager.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Renderer\KJ_DirectX\KJ_DirectX3D.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Renderer\KJ_Renderer.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Renderer\KJ_RenderSystem.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Resource\AllResourceManager.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Resource\ResourceManager.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Scene\AllScenes\TestScene.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Scene\KJ_BaseScene.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Scene\KJ_SceneManager.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Scene\KJ_SceneSystem.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Shader\KJ_Shader.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Sorting\Octree\Octree.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Sorting\Octree\OctreeData.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Sorting\Octree\OctreeNode.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Sorting\QuickSort\QuickSort.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_System\KJ_RendererFactory.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_System\KJ_System.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Texture\KJ_Texture.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_UI\UI.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Windows\KJ_Window.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Windows\KJ_WindowSystem.h" />
+    <ClInclude Include="sorce\KJ_Lib\Klibrary.h" />
+    <ClInclude Include="sorce\KJ_Lib\TextLoader\textLoader.h" />
+    <ClInclude Include="sorce\TestGame\TestGame.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shader\PS.hlsl" />
+    <None Include="Shader\VS.hlsl" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

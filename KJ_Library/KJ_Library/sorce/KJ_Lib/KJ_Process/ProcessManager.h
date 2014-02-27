@@ -13,6 +13,10 @@ namespace Klibrary{
 	//			ProcessManagerƒNƒ‰ƒX
 	//
 	//========--------========--------========--------========--------========
+	class ProcessManager;
+	typedef std::shared_ptr<ProcessManager> ProcessManagerSharedPtr;
+	typedef std::weak_ptr<ProcessManager> ProcessManagerWeakPtr;
+	
 	class ProcessManager
 	{
 	private:

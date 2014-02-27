@@ -5,10 +5,10 @@
 
 #include <D3DX11.h>
 #include "../KJ_System/KJ_System.h"
+#include "../KJ_Defines/KJ_Defines.h"
 #include <unordered_map>
 #include <string>
 #include <memory>
-#include "../KJ_Defines/KJ_Defines.h"
 
 namespace Klibrary{
 
@@ -39,6 +39,37 @@ namespace Klibrary{
 		void SendShader(jUInt32 stot);
 	};
 
+	//インデックスの割り当て、
+	//左上を0として右に向かってインクリメント
+	//端まで行ったらまた下段に行く。
+	//CulcUで返ってくるのはUV座標上で左上、原点(0,0)
+	struct AtrasTexData{
+		jUInt16 devideX, devideY;
+		jUInt16 numDevide;
+		float cellSizeX, cellSizeY;
+
+		AtrasTexData() :devideX(1), devideY(1), cellSizeX(0), cellSizeY(0){}
+
+		void Devide(jUInt16 devide){
+			if (devide <= 0 || devide > 512)return;
+
+			this->devideX = this->devideY = devide;
+			numDevide = (this->devideX + 1) * (this->devideY + 1);
+			cellSizeX = 1.0f / ((float)devideX + 1.0f);
+			cellSizeX = 1.0f / ((float)devideX + 1.0f);
+		}
+		void Devide(jUInt16 devideX, jUInt16 devideY){
+			if (devideX > 512 || devideY > 512)return;
+			if (devideX <= 0 && devideY <= 0)return;
+
+			this->devideX = devideX;
+			this->devideY = devideY;
+			numDevide = (this->devideX + 1) * (this->devideY + 1);
+		}
+
+		//jFloat CulcU(jUInt16 index){ return devideX + devideY * devideX; }
+		//jFloat CulcV(jUInt16 index)
+	};
 
 }
 

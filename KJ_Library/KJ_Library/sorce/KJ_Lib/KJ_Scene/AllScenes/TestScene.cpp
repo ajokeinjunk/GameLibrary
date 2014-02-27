@@ -1,7 +1,5 @@
 #include "TestScene.h"
-#include "../../KJ_Resource/AllResourceManager.h"
-#include "../../KJ_Camera/CameraManager.h"
-#include "../../KJ_Mesh/KJ_MeshLoader/FBXLoader.h"
+
 #include <assert.h>
 
 namespace Klibrary{
@@ -17,6 +15,8 @@ namespace Klibrary{
 	{
 		if(m_IsInitialized == false){
 			bool success = false;
+
+			InputDeviceManager::EnableMouse();
 
 			CameraSharedPtr camera = make_shared<Camera>();
 			FBXLoader loader;
@@ -45,7 +45,6 @@ namespace Klibrary{
 			gMQOTube->SetScale(0.01f);
 			gMQOTube->SetPosition(0.0f, 0.0f, 0.0f);
 
-
 			board = new KJ_BaseFormMesh();
 			board->Initialize();
 			board->MakePlane(100, 100, 100);
@@ -53,8 +52,8 @@ namespace Klibrary{
 			board->Update();
 
 			light = new DirectionalLight(Vector3(1, 1, -3));
-			
 
+			
 
 			m_IsInitialized = true;
 		}

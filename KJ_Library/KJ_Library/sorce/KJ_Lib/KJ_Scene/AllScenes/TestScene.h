@@ -1,12 +1,7 @@
 #ifndef H_KLIB_TEST_SCENE_H
 #define H_KLIB_TEST_SCENE_H
 
-#include "../KJ_BaseScene.h"
-#include "../../KJ_System/KJ_System.h"
-#include "../../KJ_Mesh/KJ_HardenedMesh/KJ_HardenedMesh.h"
-#include "../../KJ_Camera/KJ_Camera.h"
-#include "../../KJ_Light/Light.h"
-#include "../../KJ_Mesh/KJ_BasicForm/KJ_BasicForm.h"
+#include "../../KJ_library.h"
 
 namespace Klibrary{
 

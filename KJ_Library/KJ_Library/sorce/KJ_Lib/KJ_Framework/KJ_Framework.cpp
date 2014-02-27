@@ -4,7 +4,7 @@
 #include "../KJ_System/KJ_RendererFactory.h"
 #include "../KJ_Mesh/KJ_HardenedMesh/KJ_HardenedMesh.h"
 #include "../KJ_Scene/AllScenes/TestScene.h"
-
+#include "../KJ_Input/InputDeviceManager.h"
 
 
 #pragma warning(disable:4482)
@@ -32,6 +32,7 @@ namespace Klibrary{
 
 
 	HRESULT GameFramework::GameStartUp(){
+		InputDeviceManager::Initialize();
 		//最初に渡すシーン、描画デバイス設定を記述
 
 		//RenderSystem::GetRenderer() = KrendererFactory::CreateRenderer(KrendererType::DirectX11);
@@ -65,7 +66,7 @@ namespace Klibrary{
 	}
 
 	bool GameFramework::Update(){
-
+		InputDeviceManager::Update(SPF);
 		if(m_scene != nullptr)m_scene->Update();
 
 		return true;

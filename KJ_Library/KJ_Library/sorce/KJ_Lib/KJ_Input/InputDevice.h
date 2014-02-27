@@ -6,7 +6,7 @@
 namespace Klibrary{
 	class IMouseHandler{
 		virtual bool ButtonDown() = 0;
-		virtual bool ButtonUpd() = 0;
+		virtual bool ButtonUp() = 0;
 		virtual bool ButtonMove() = 0;
 		virtual bool MiddleButtonDrag() = 0;
 	};

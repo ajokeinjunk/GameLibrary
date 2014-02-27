@@ -392,6 +392,7 @@ namespace Klibrary{
 
 	inline void Mat4InvertOrthogonalMatrix(Matrix4& out, const Matrix4& in);
 	inline void Mat4TransposeMatrix(Matrix4& out, const Matrix4& in);
+	inline void Mat4TransformTo2D(Vector2& screenPos, const Vector3& worldPos, Matrix4 view, Matrix4 projection, unsigned int windowWidth, unsigned int windowHeight);
 
 
 

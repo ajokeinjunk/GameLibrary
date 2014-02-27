@@ -1,67 +1,61 @@
 #include "Mouse.h"
+#include "../KJ_Input/InputData.h"
+#include "../KJ_Windows/KJ_WindowSystem.h"
 
 namespace Klibrary{
 	bool Mouse::m_Enable = true;
 	bool Mouse::m_Show = true;
 	bool Mouse::m_FreezeOnCenter = false;
+	bool Mouse::m_IsOnePush = false;
+	bool Mouse::m_IsOnePull = false;
 	
-	//POINT Mouse::m_pos;
-	//POINT Mouse::m_lastPos;
-	//POINT Mouse::m_relativeDistance;
-
+	POINT Mouse::m_Pos;
+	POINT Mouse::m_LastPos;
+	POINT Mouse::m_RelativeDistance;
+	POINT Mouse::m_ClientPos;
 
 	void Mouse::UpdateTrackMouse(){
-
-
 		if (!m_Enable)return;
+		
+#ifdef _DEBUG
+		//if (KEY_Get(KEY_D) == 3){
+		//	m_FreezeOnCenter = !m_FreezeOnCenter;
+		//}
+#endif
+		ShowCursor(m_Show);
 
-		//GetCursorPos(&m_pos);  //これはスクリーンの座標なのか
-		m_relativeDistance.x = m_lastPos.x - m_pos.x;
-		m_relativeDistance.y = m_lastPos.y - m_pos.y;
+		m_IsOnePush = false;
+		m_IsOnePull = false;
+
+		if (WindowsMsg::message == WM_LBUTTONDOWN){
+			if (WindowsMsg::message != WindowsMsg::lastMassage){
+				m_IsOnePush = true;
+			}
+		}
+		else if (WindowsMsg::message == WM_LBUTTONUP){
+			if (WindowsMsg::message != WindowsMsg::lastMassage){
+				m_IsOnePull = true;
+			}
+		}
+
+		GetCursorPos(&m_Pos);  //これはパソコン画面の座標
+		m_RelativeDistance.x = m_LastPos.x - m_Pos.x;
+		m_RelativeDistance.y = m_LastPos.y - m_Pos.y;
 
 		if (m_FreezeOnCenter){
-			//m_pos.x = iexSystem::ScreenWidth / 2;
-			//m_pos.y = iexSystem::ScreenHeight / 2;
-			//ClientToScreen(iexSystem::Window, &m_pos);//現在画面基準の座標にm_posを変換
-
-			//SetCursorPos(m_pos.x, m_pos.y);
+			m_Pos.x = WindowSystem::windowWidth / 2;
+			m_Pos.y = WindowSystem::windowHeight / 2;
+			ClientToScreen(WindowSystem::hWnd, &m_Pos);//windowの真ん中の点を現在の画面基準の座標にm_posを変換
+			SetCursorPos(m_Pos.x, m_Pos.y);
 		}
 	
 			//ここで算出されているのはあくまで画面上のカーソル移動量
+		m_ClientPos = m_Pos;
+		ScreenToClient(WindowSystem::hWnd, &m_ClientPos);
 
-
-
-		m_lastPos = m_pos;
-
-
+		m_LastPos = m_Pos;
 	}
 
-	/*void Mouse::SetupMouseState(){
-		switch (g_wparam)
-		{
-		case WM_LBUTTONDOWN:
-			m_mouseButtonState[LEFT_BUTTON] |= MOUSE_PUSH;
-
-		case WM_MBUTTONDOWN:
-			m_mouseButtonState[MIDDLE_BUTTON] |= MOUSE_PUSH;
-
-		case WM_RBUTTONDOWN:
-			m_mouseButtonState[RIGHT_BUTTON] |= MOUSE_PUSH;
-
-		case WM_LBUTTONUP:
-			m_mouseButtonState[LEFT_BUTTON] |= MOUSE_UP;
-
-		case WM_MBUTTONUP:
-			m_mouseButtonState[MIDDLE_BUTTON] |= MOUSE_UP;
-
-		case WM_RBUTTONUP:
-			m_mouseButtonState[RIGHT_BUTTON] |= MOUSE_UP;
-
-			case WM
-		default:
-			break;
-		}
-	}*/
 
 
 }

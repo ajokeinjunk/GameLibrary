@@ -1,4 +1,4 @@
-#include "../KJ_Lib/Klibrary.h"
+#include "../KJ_Lib/KJ_library.h"
 
 
 #ifdef _DEBUG
@@ -78,17 +78,16 @@ HRESULT InitializeWindow(HINSTANCE hInstance, INT windowWidth, INT windowHeight,
 	AdjustWindowRect(&windowSize, WS_OVERLAPPEDWINDOW, FALSE);
 
 	//ウィンドウ作成
-	KwindowSystem::m_hWnd = CreateWindow(windowName, windowName, WS_OVERLAPPEDWINDOW, NULL, NULL, windowSize.right - windowSize.left, windowSize.bottom - windowSize.top, 0, 0, hInstance, NULL);
+	WindowSystem::hWnd = CreateWindow(windowName, windowName, WS_OVERLAPPEDWINDOW, NULL, NULL, windowSize.right - windowSize.left, windowSize.bottom - windowSize.top, 0, 0, hInstance, NULL);
 
-	if (!KwindowSystem::m_hWnd){
+	if (!WindowSystem::hWnd){
 		MessageBox(0, "ウィンドウ作成失敗。", NULL, MB_OK);
 		return E_FAIL;
 	}
 
-
 	//ウィンドウ表示
-	ShowWindow(KwindowSystem::m_hWnd, SW_SHOW);
-	UpdateWindow(KwindowSystem::m_hWnd);   //随時アップデートすればウィンドウスタイルもコロコロ変えられる
+	ShowWindow(WindowSystem::hWnd, SW_SHOW);
+	UpdateWindow(WindowSystem::hWnd);   //随時アップデートすればウィンドウスタイルもコロコロ変えられる
 
 	return S_OK;
 }

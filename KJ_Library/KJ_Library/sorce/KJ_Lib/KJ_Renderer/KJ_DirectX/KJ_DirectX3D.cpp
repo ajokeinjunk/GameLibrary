@@ -107,8 +107,8 @@ namespace Klibrary{
 
 		//ビューポート設定、セット
 		D3D11_VIEWPORT vp;
-		vp.Width = (float)KwindowSystem::GetWindowWidth();
-		vp.Height = (float)KwindowSystem::GetWindowHeight();
+		vp.Width = (float)WindowSystem::windowWidth;
+		vp.Height = (float)WindowSystem::windowHeight;
 		vp.MinDepth = 0.0f;
 		vp.MaxDepth = 1.0f;
 		vp.TopLeftX = 0;
@@ -146,7 +146,7 @@ namespace Klibrary{
 		Mat4MakeViewMatrixLH(m_viewMatrix,  Vector3(  0.0f, 0.0f, -10.0f ), Vector3( 0.0f, 1.0f, 0.0f ), Vector3( 0.0f, 1.0f, 0.0f ));
 
 		//射影行列設定
-		Mat4MakeProjectionMatrixLH(m_projectionMatrix, K_45_DEGREE, KwindowSystem::GetScreenAspectRatio(), 0.01f, 100.0f);
+		Mat4MakeProjectionMatrixLH(m_projectionMatrix, K_45_DEGREE, WindowSystem::GetScreenAspectRatio(), 0.01f, 100.0f);
 
 		//プリミティブの形態を指定
 		m_pDeviceContext->IASetPrimitiveTopology( D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST );
@@ -545,13 +545,13 @@ namespace Klibrary{
 		DXGI_SWAP_CHAIN_DESC sd;
 		ZeroMemory(&sd, sizeof(sd));
 		sd.BufferCount = 1;
-		sd.BufferDesc.Width = KwindowSystem::GetWindowWidth();
-		sd.BufferDesc.Height = KwindowSystem::GetWindowHeight();
+		sd.BufferDesc.Width = WindowSystem::windowWidth;
+		sd.BufferDesc.Height = WindowSystem::windowHeight;
 		sd.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
 		sd.BufferDesc.RefreshRate.Numerator = 60; //FPS
 		sd.BufferDesc.RefreshRate.Denominator = 1;
 		sd.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
-		sd.OutputWindow = KwindowSystem::m_hWnd;  //DirectX描画先ウィンドウ設定
+		sd.OutputWindow = WindowSystem::hWnd;  //DirectX描画先ウィンドウ設定
 		sd.SampleDesc.Count = 1;
 		sd.SampleDesc.Quality = 0;
 		sd.Windowed = TRUE;
@@ -606,8 +606,8 @@ namespace Klibrary{
 		//DepthStencilテクスチャ作成
 		D3D11_TEXTURE2D_DESC descDepth;
 		ZeroMemory( &descDepth, sizeof(descDepth) );
-		descDepth.Width = KwindowSystem::GetWindowWidth();
-		descDepth.Height = KwindowSystem::GetWindowHeight();
+		descDepth.Width = WindowSystem::windowWidth;
+		descDepth.Height = WindowSystem::windowHeight;
 		descDepth.MipLevels = 1;
 		descDepth.ArraySize = 1;
 		descDepth.Format = format;

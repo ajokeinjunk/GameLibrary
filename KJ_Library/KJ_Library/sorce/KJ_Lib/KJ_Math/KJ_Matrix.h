@@ -1,7 +1,6 @@
 #ifndef H_K_MATRIX_H
 #define H_K_MATRIX_H
 
-
 namespace Klibrary{
 
 //========--------========--------========--------========--------========
@@ -754,6 +753,31 @@ namespace Klibrary{
 		out.m4.z = m.m4.z;
 		out.m4.w = m.m4.w;
 	}
+
+	inline void Mat4TransformTo2D(Vector2& screenPos, const Vector3& worldPos, Matrix4 view, Matrix4 projection, unsigned int windowWidth, unsigned int windowHeight)
+	{
+		Vector3 p;
+		float w = 1.0f;
+
+		Matrix4	mat = view * projection;
+
+		p.x = worldPos.x * mat.m1.x + worldPos.y * mat.m2.x + worldPos.z * mat.m3.x + mat.m4.x;
+		p.y = worldPos.x * mat.m1.y + worldPos.y * mat.m2.y + worldPos.z * mat.m3.y + mat.m4.y;
+		p.z = worldPos.x * mat.m1.z + worldPos.y * mat.m2.z + worldPos.z * mat.m3.z + mat.m4.z;
+		w   = worldPos.x * mat.m1.w + worldPos.y * mat.m2.w + worldPos.z * mat.m3.w + mat.m4.w;
+
+		p.x = p.x / w;
+		p.y = p.y / w;
+
+		p.x = p.x * 0.5f + 0.5f;
+		p.y = -p.y;
+		p.y = p.y * 0.5f + 0.5f;
+
+
+		screenPos.x = p.x * windowWidth;
+		screenPos.y = p.y * windowHeight;
+	}
+
 
 } //namespace Kmath
 

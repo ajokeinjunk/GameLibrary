@@ -5,8 +5,18 @@
 #include "../KJ_Math/KJ_Math.h"
 #include "../KJ_Defines/KJ_Defines.h"
 #include <string>
+#include <memory>
 
 namespace Klibrary{
+	class Actor;
+	class ActorComponent;
+
+	typedef jUInt32 ActorID;
+	typedef jUInt32 ComponentID;
+
+	typedef std::shared_ptr<Actor> ActorSharedPtr;
+	typedef std::weak_ptr<Actor> ActorWeakPtr;
+
 	//========--------========--------========--------========--------========
 	//
 	//		   アプリケーションクラス
@@ -45,13 +55,21 @@ namespace Klibrary{
 	//		   ゲームとしての中身を決定する
 	//
 	//========--------========--------========--------========--------========
+	//戻り値は固定であっても内部でのmapの型が違うこともあるため、
+	//全て純仮想関数とする。
+
 	class IGameLogic{
 	public:
 		virtual void Initialize(const char* filename) = 0;
-		virtual void Load() = 0;
-		virtual void Update() = 0;
-
+		virtual void LoadGame() = 0;
+		virtual void Update(float currentTime, float elapsedTime) = 0;
 		virtual void Release() = 0;
+
+		virtual void ChangeGameState(enum BaseGameState newState) = 0;
+		virtual void CreateActor() = 0;
+		virtual void DestroyActor(const ActorID actorID) = 0;
+
+		virtual ActorWeakPtr GetActor(const ActorID actorID) = 0;
 	};
 
 	//========--------========--------========--------========--------========

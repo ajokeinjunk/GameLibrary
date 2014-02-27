@@ -36,7 +36,7 @@ namespace Klibrary{
 		FbxImporter* pImporter = FbxImporter::Create(m_pManager, "importer");
 
 		bool importerSuccess = pImporter->Initialize(fullPass);
-
+		delete[] fullPass;
 		if (!importerSuccess){
 			FbxString errorStr = pImporter->GetStatus().GetErrorString();
 			std::string str = errorStr;

@@ -1,6 +1,9 @@
 #ifndef H_KLIB_DEFINES_H
 #define H_KLIB_DEFINES_H
 
+#define SIZE_OF_BYTE sizeof(byte)
+#define SPF 16
+
 namespace Klibrary{
 	typedef          float		   jFloat;
 	typedef          bool		   jBool;
@@ -12,10 +15,6 @@ namespace Klibrary{
 	typedef unsigned int           jUInt32;
 	typedef signed   long long int jInt64;
 	typedef unsigned long long int jUInt64;
-
-#define SIZE_OF_BYTE sizeof(byte)
-#define SPF 16
-
 }
 
 #endif

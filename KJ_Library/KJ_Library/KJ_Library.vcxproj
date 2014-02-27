@@ -87,15 +87,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="sorce\KJ_Lib\Application.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Animation2D\Animation2D.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Animation2D\Animtaion2DManager.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Animation2D\InputAnimtionData.cpp" />
     <ClCompile Include="sorce\KJ_Lib\KJ_Camera\CameraManager.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Camera\CameraElements.cpp" />
     <ClCompile Include="sorce\KJ_Lib\KJ_Camera\KJ_Camera.cpp" />
     <ClCompile Include="sorce\KJ_Lib\KJ_Debug\KJ_Debug.cpp" />
     <ClCompile Include="sorce\KJ_Lib\KJ_File\KJ_File.cpp" />
     <ClCompile Include="sorce\KJ_Lib\KJ_Framework\KJ_Framework.cpp" />
-    <ClCompile Include="sorce\KJ_Lib\KJ_GameLogic\KJ_BaseGameLogic3D\BaseGameLogic3D.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_GameLogic\KJ_BaseGameLogic3D\BaseGameLogic.cpp" />
     <ClCompile Include="sorce\KJ_Lib\KJ_Graph\Graph\Graph.cpp" />
     <ClCompile Include="sorce\KJ_Lib\KJ_Graph\NodeEdge\NodeEdge.cpp" />
     <ClCompile Include="sorce\KJ_Lib\KJ_Input\InputData.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Input\InputDeviceManager.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Input\Mouse.cpp" />
     <ClCompile Include="sorce\KJ_Lib\KJ_Light\Light.cpp" />
     <ClCompile Include="sorce\KJ_Lib\KJ_Mesh\KJ_BasicForm\KJ_BasicForm.cpp" />
     <ClCompile Include="sorce\KJ_Lib\KJ_Mesh\KJ_HardenedMesh\KJ_HardenedMesh.cpp" />
@@ -129,14 +135,17 @@
     <ClInclude Include="Shader\PSMethodDefinition.h" />
     <ClInclude Include="sorce\KJ_Lib\Application.h" />
     <ClInclude Include="sorce\KJ_Lib\KJ_Actor\Actor.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Animation2D\Animation2D.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Animation2D\Animation2DManager.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Animation2D\InputAnimation2D.h" />
     <ClInclude Include="sorce\KJ_Lib\KJ_Camera\CameraManager.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Camera\CameraElements.h" />
     <ClInclude Include="sorce\KJ_Lib\KJ_Camera\KJ_Camera.h" />
     <ClInclude Include="sorce\KJ_Lib\KJ_Debug\KJ_Debug.h" />
     <ClInclude Include="sorce\KJ_Lib\KJ_Defines\KJ_Defines.h" />
     <ClInclude Include="sorce\KJ_Lib\KJ_File\KJ_File.h" />
     <ClInclude Include="sorce\KJ_Lib\KJ_Framework\KJ_Framework.h" />
-    <ClInclude Include="sorce\KJ_Lib\KJ_GameLogic\KJ_BaseGameLogic2D\BaseGameLogic2D.h" />
-    <ClInclude Include="sorce\KJ_Lib\KJ_GameLogic\KJ_BaseGameLogic3D\BaseGameLogic3D.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_GameLogic\KJ_BaseGameLogic3D\BaseGameLogic.h" />
     <ClInclude Include="sorce\KJ_Lib\KJ_GameObject\KJ_GameObject.h" />
     <ClInclude Include="sorce\KJ_Lib\KJ_GenericPrg\KJ_GenericPrg.h" />
     <ClInclude Include="sorce\KJ_Lib\KJ_GenericPrg\KJ_HashTable.h" />
@@ -144,6 +153,8 @@
     <ClInclude Include="sorce\KJ_Lib\KJ_Graph\NodeEdge\NodeEdge.h" />
     <ClInclude Include="sorce\KJ_Lib\KJ_Input\InputData.h" />
     <ClInclude Include="sorce\KJ_Lib\KJ_Input\InputDevice.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Input\InputDeviceManager.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Input\Mouse.h" />
     <ClInclude Include="sorce\KJ_Lib\KJ_Interface\KJ_Interface.h" />
     <ClInclude Include="sorce\KJ_Lib\KJ_Light\Light.h" />
     <ClInclude Include="sorce\KJ_Lib\KJ_Math\KJ_Math.h" />
@@ -180,7 +191,7 @@
     <ClInclude Include="sorce\KJ_Lib\KJ_UI\UI.h" />
     <ClInclude Include="sorce\KJ_Lib\KJ_Windows\KJ_Window.h" />
     <ClInclude Include="sorce\KJ_Lib\KJ_Windows\KJ_WindowSystem.h" />
-    <ClInclude Include="sorce\KJ_Lib\Klibrary.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_library.h" />
     <ClInclude Include="sorce\KJ_Lib\TextLoader\textLoader.h" />
     <ClInclude Include="sorce\TestGame\TestGame.h" />
   </ItemGroup>

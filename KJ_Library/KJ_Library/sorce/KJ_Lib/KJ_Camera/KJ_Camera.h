@@ -7,37 +7,39 @@
 #include "../KJ_Mesh/MeshProperty.h"
 #include "../KJ_Renderer/KJ_RenderSystem.h"
 #include "../KJ_Defines/KJ_Defines.h"
+#include "../KJ_Windows/KJ_WindowSystem.h"
+#include "../KJ_Camera/CameraElements.h"
 
 
-//========--------========--------========--------========--------========
-//
-//			Viewクラス
-//
-//========--------========--------========--------========--------========
 namespace Klibrary{
-
+	//========--------========--------========--------========--------========
+	//
+	//			Cameraクラス
+	//
+	//========--------========--------========--------========--------========
 	class Camera;
 	typedef jUInt32 CameraInfoID;
 	typedef std::shared_ptr<Camera> CameraSharedPtr;
 
 	class Camera{
 	protected:
-		float m_fieldOfView;
-		float m_aspectRatio;
-		float m_nearClipping;
-		float m_farClipping;
-		
-		Vector3 m_pos;
-		Vector3 m_target;
+		Vector3 m_Pos;
+		Vector3 m_Target;
 
-		CameraInfoID m_cameraInfoID;  //カメラ識別ID
+		float m_FieldOfView;
+		float m_AspectRatio;
+		float m_NearClipping;
+		float m_FarClipping;
+		
+		CameraInfoID m_CameraInfoID;  //カメラ識別ID
 
 	public:
 		inline Camera();
 		inline Camera(const Vector3& pos, const Vector3& target);
 		~Camera(){}
 
-		inline virtual void Update(const jUInt32 deltaMs){}
+		virtual void Initialize();
+		virtual void Update(const jUInt32 deltaMs){}
 
 		inline void ClearTargetView();
 		inline void ClearTargetView(float a, float r, float g, float b);
@@ -48,45 +50,38 @@ namespace Klibrary{
 		inline void Activate(Matrix4& outViewMatrix, Matrix4& outProjectionMatrix);
 		inline void Activate(Matrix4& outViewMatrix, Matrix4& outProjectionMatrix, const D3D11_VIEWPORT& viewport );
 
-		inline void SetTarget(const Vector3& target){m_target = target;}
-		inline void SetPosition(const Vector3& position){m_pos = position;}
+		inline void SetTarget(const Vector3& target){ m_Target = target; }
+		inline void SetPosition(const Vector3& position){m_Pos = position;}
 		inline void SetCulRotation(const Vector3& rotation);
-		inline void SetCamera(const Vector3& position, const Vector3& target){m_pos = position; m_target = target;}
+		inline void SetCamera(const Vector3& position, const Vector3& target){m_Pos = position; m_Target = target;}
+		inline void SetProjectionValue(float fieldOfView, float nearClipping, float farClipping, float windowHeight, float windowWidth);
 		inline void SetProjectionValue(float fieldOfView, float aspectRatio, float nearClipping, float farClipping);
-		inline void SetAspectRation(float aspectRation){ m_aspectRatio = aspectRation; }
-		inline void SetFoV(float  fieldOfView){ m_fieldOfView = fieldOfView; }
-		inline void SetCameraInfoID(CameraInfoID infoID){ m_cameraInfoID = infoID; }
+		inline void SetAspectRation(float aspectRation){ m_AspectRatio = aspectRation; }
+		inline void SetFoV(float  fieldOfView){ m_FieldOfView = fieldOfView; }
+		inline void SetCameraInfoID(CameraInfoID infoID){ m_CameraInfoID = infoID; }
 
-		inline const Vector3& GetTarget()const{return m_target;}
-		inline const Vector3& GetPosition()const{return m_pos;}
-		inline CameraInfoID   GetCameraInfoID()const{ return m_cameraInfoID; }
+		inline const Vector3& GetTarget()const{return m_Target;}
+		inline const Vector3& GetPosition()const{return m_Pos;}
+		inline CameraInfoID   GetCameraInfoID()const{ return m_CameraInfoID; }
 
 	};
 
 	inline Camera::Camera(){
-		m_pos.x = 0;
-		m_pos.y = 10.0f;
-		m_pos.z = -10.0f;
+		m_Pos.x = 0;
+		m_Pos.y = 10.0f;
+		m_Pos.z = -10.0f;
 
-		m_target.x = 0;
-		m_target.y = 3.0f;
-		m_target.z = 1.0f;
+		m_Target.x = 0;
+		m_Target.y = 3.0f;
+		m_Target.z = 1.0f;
 
-		m_fieldOfView = K_45_DEGREE;
-		m_farClipping = 1000.0f;
-		m_nearClipping = 0.01f;
-		m_aspectRatio = KwindowSystem::GetScreenAspectRatio();
-
+		SetProjectionValue(K_45_DEGREE, WindowSystem::GetScreenAspectRatio(), 0.1f, 1000.0f);
 	}
 	
 	inline Camera::Camera(const Vector3& pos, const Vector3& target){
-		m_pos = pos;
-		m_target = target;
-		m_fieldOfView = K_45_DEGREE;
-		m_farClipping = 1000.0f;
-		m_nearClipping = 0.01f;
-		m_aspectRatio = KwindowSystem::GetScreenAspectRatio();
-		
+		m_Pos = pos;
+		m_Target = target;
+		SetProjectionValue(K_45_DEGREE, WindowSystem::GetScreenAspectRatio(), 0.1f, 1000.0f);
 	}
 
 	inline void Camera::ClearTargetView(){
@@ -112,8 +107,8 @@ namespace Klibrary{
 	inline void Camera::Activate(){
 		Matrix4 outViewMatrix, outProjectionMatrix;
 
-		Mat4MakeViewMatrixLH(outViewMatrix, m_pos, m_target, Vector3(0, 1.0f, 0));
-		Mat4MakeProjectionMatrixLH(outProjectionMatrix, m_fieldOfView, m_aspectRatio, m_nearClipping, m_farClipping);
+		Mat4MakeViewMatrixLH(outViewMatrix, m_Pos, m_Target, Vector3(0, 1.0f, 0));
+		Mat4MakeProjectionMatrixLH(outProjectionMatrix, m_FieldOfView, m_AspectRatio, m_NearClipping, m_FarClipping);
 
 		RenderSystem::GetRenderer()->SetViewMatrix(outViewMatrix);
 		RenderSystem::GetRenderer()->SetProjectionMatrix(outProjectionMatrix);
@@ -121,8 +116,8 @@ namespace Klibrary{
 
 	inline void Camera::Activate(Matrix4& outViewMatrix, Matrix4& outProjectionMatrix){
 
-		Mat4MakeViewMatrixLH(outViewMatrix, m_pos, m_target, Vector3(0, 1.0f, 0));
-		Mat4MakeProjectionMatrixLH(outProjectionMatrix, m_fieldOfView, m_aspectRatio, m_nearClipping, m_farClipping);
+		Mat4MakeViewMatrixLH(outViewMatrix, m_Pos, m_Target, Vector3(0, 1.0f, 0));
+		Mat4MakeProjectionMatrixLH(outProjectionMatrix, m_FieldOfView, m_AspectRatio, m_NearClipping, m_FarClipping);
 
 		RenderSystem::GetRenderer()->SetViewMatrix(outViewMatrix);
 		RenderSystem::GetRenderer()->SetProjectionMatrix(outProjectionMatrix);
@@ -130,8 +125,8 @@ namespace Klibrary{
 
 	inline void Camera::Activate(Matrix4& outViewMatrix, Matrix4& outProjectionMatrix, const D3D11_VIEWPORT& viewport){
 
-		Mat4MakeViewMatrixLH(outViewMatrix, m_pos, m_target, Vector3(0, 1.0f, 0));
-		Mat4MakeProjectionMatrixLH(outProjectionMatrix, m_fieldOfView, m_aspectRatio, m_nearClipping, m_farClipping);
+		Mat4MakeViewMatrixLH(outViewMatrix, m_Pos, m_Target, Vector3(0, 1.0f, 0));
+		Mat4MakeProjectionMatrixLH(outProjectionMatrix, m_FieldOfView, m_AspectRatio, m_NearClipping, m_FarClipping);
 
 		RenderSystem::GetRenderer()->SetViewMatrix(outViewMatrix);
 		RenderSystem::GetRenderer()->SetProjectionMatrix(outProjectionMatrix);
@@ -140,11 +135,18 @@ namespace Klibrary{
 
 
 
+	inline void Camera::SetProjectionValue(float fieldOfView, float nearClipping, float farClipping, float windowHeight, float windowWidth){
+		m_FieldOfView = fieldOfView;
+		m_NearClipping = nearClipping;
+		m_FarClipping = farClipping;
+		m_AspectRatio = windowWidth / windowHeight;
+	}
+
 	inline void Camera::SetProjectionValue(float fieldOfView, float aspectRatio, float nearClipping, float farClipping){
-		m_fieldOfView = fieldOfView;
-		m_aspectRatio = aspectRatio;
-		m_nearClipping = nearClipping;
-		m_farClipping = farClipping;
+		m_FieldOfView = fieldOfView;
+		m_NearClipping = nearClipping;
+		m_FarClipping = farClipping;
+		m_AspectRatio = aspectRatio;
 	}
 
 	inline void Camera::SetCulRotation(const Vector3& rotation){
@@ -153,12 +155,45 @@ namespace Klibrary{
 		float cx = cosf(rotation.x);
 		float cy = cosf(rotation.y);
 
-		m_target.x = m_pos.x + (cx*cy);
-		m_target.y = m_pos.y - sx;
-		m_target.z = m_pos.z + (cx*cy);
+		m_Target.x = m_Pos.x + (cx*cy);
+		m_Target.y = m_Pos.y - sx;
+		m_Target.z = m_Pos.z + (cx*cy);
 	}
 
+	//=================================================================================
+	//
+	//		球回転カメラクラス(2軸)
+	//
+	//=================================================================================
+#define ANGULAR_SPEED_Y 0.01f
+#define ANGULAR_SPPED_Y_LIMIT 0.05f
 
+#define ANGULAR_SPEED_X 0.007f
+#define ANGULAR_SPEED_X_LIMIT 0.04f
+
+	//後々状態遷移実装
+	class AxisCam : public Camera{
+	private:
+		AxisCameraElements m_cameraData; //基底からの柔軟性があるのは結構なことだが、どこもかしこもアップキャスト祭りになる。どうするか。
+
+	public:
+		AxisCam(){}
+		~AxisCam(){}
+
+		void Initialize();
+
+		//補正はベクトルによる線形、クォータニオンによる球形補完(slearp)
+		//オイラー→クォータニオン?
+
+
+		inline const AxisCameraElements& GetCameraElements()const{ return m_cameraData; }
+	};
+
+	//========--------========--------========--------========--------========
+	//
+	//			AnimationCameraクラス
+	//
+	//========--------========--------========--------========--------========
 	class AnimationCamera : public Camera{
 	private:
 		jUInt8  m_currentMotion;
@@ -175,9 +210,9 @@ namespace Klibrary{
 		jUInt16*    m_rotationFrame;
 		Quaternion* m_rotationData;
 
-		jUInt32     m_posNum;
-		jUInt32*    m_posFrame;
-		Vector3*    m_posData;
+		jUInt32     m_PosNum;
+		jUInt32*    m_PosFrame;
+		Vector3*    m_PosData;
 
 		bool        m_doAnimation;
 
@@ -185,7 +220,7 @@ namespace Klibrary{
 
 	public:
 		AnimationCamera() :m_offsetKeyFrame(nullptr), m_currentMotion(-1), m_rotationFrame(nullptr), m_rotationData(nullptr),
-			m_posFrame(nullptr), m_posData(nullptr), m_doAnimation(true){
+			m_PosFrame(nullptr), m_PosData(nullptr), m_doAnimation(true){
 		}
 
 		~AnimationCamera(){}

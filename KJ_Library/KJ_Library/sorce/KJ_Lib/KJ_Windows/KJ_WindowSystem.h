@@ -25,18 +25,15 @@
 //========--------========--------========--------========--------========
 
 namespace Klibrary{
-	class KwindowSystem{
+	class WindowSystem{
 	private:
-		static WORD m_windowHeight;
-		static WORD m_windowWidth;
 
 	public:
-		static HWND m_hWnd;  //ウィンドウハンドル
-		//static Krenderer* m_renderer;
+		static WORD windowHeight;
+		static WORD windowWidth;
+		static HWND hWnd;  //ウィンドウハンドル
 
-		inline static WORD GetWindowHeight(){return m_windowHeight;}
-		inline static WORD GetWindowWidth(){return m_windowWidth;}
-		inline static float GetScreenAspectRatio(){return (float)m_windowWidth/m_windowHeight;}
+		inline static float GetScreenAspectRatio(){return (float)windowWidth/windowHeight;}
 	};
 }//namespace
 

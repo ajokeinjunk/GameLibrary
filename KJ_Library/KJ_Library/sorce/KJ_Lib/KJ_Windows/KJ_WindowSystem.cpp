@@ -2,8 +2,8 @@
 
 namespace Klibrary{
 
-	WORD KwindowSystem::m_windowHeight = WINDOW_HEIGHT;
-	WORD KwindowSystem::m_windowWidth = WINDOW_WIDTH;
-	HWND KwindowSystem::m_hWnd = nullptr;
+	WORD WindowSystem::windowHeight = WINDOW_HEIGHT;
+	WORD WindowSystem::windowWidth = WINDOW_WIDTH;
+	HWND WindowSystem::hWnd = nullptr;
 	//Krenderer* KwindowSystem::m_renderer = nullptr;
 }//namespace

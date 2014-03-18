@@ -18,23 +18,40 @@
 #define WINDOW_WIDTH 1280
 #define WINDOW_HEIGHT 720
 
-//========--------========--------========--------========--------========
-//
-//			KwindowSystemクラス
-//
-//========--------========--------========--------========--------========
 
+/** ===================================================================================
+* @class WindowSystem
+* @brief WindowハンドルやWindow情報へのアクセサー
+==================================================================================== */
 namespace Klibrary{
 	class WindowSystem{
 	private:
 
 	public:
+		//!< @brief ウィンドウの高さ
 		static WORD windowHeight;
+		//!< @brief ウィンドウの幅
 		static WORD windowWidth;
-		static HWND hWnd;  //ウィンドウハンドル
+		//!< @brief ウィンドウハンドル
+		static HWND hWnd; 
 
+		//ゲッター
 		inline static float GetScreenAspectRatio(){return (float)windowWidth/windowHeight;}
 	};
+
+	/** ===================================================================================
+	* @class WindowsMsg
+	* @brief Windowから送られてくるメッセージの構造体
+	* 直前の入力メッセージも保管している。
+	==================================================================================== */
+	class WindowsMsg{
+	public:
+		static UINT message;
+		static WPARAM wParam;
+		static LPARAM lParam;
+		static UINT lastMessage;
+	};
+
 }//namespace
 
 #endif

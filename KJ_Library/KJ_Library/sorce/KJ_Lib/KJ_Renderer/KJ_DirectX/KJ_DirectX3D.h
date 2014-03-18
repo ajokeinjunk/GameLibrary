@@ -12,6 +12,7 @@
 #include "../../KJ_Windows/KJ_WindowSystem.h"
 #include "../KJ_Renderer.h"
 #include "../../KJ_Mesh/MeshProperty.h"
+#include <memory>
 
 #pragma comment(lib,"d3dx10.lib")
 #pragma comment(lib, "d3d11.lib")
@@ -32,7 +33,7 @@ namespace Klibrary{
 	//データ変更はmainのみ
 	
 	//コンスタントバッファの仕様
-	//データ数が特定の条件で送れない場合がある。
+	//データ数が4byteの倍数でしか送れない。
 	struct AlwaysChangeCB{
 		Matrix4 WVP; //ワールド、ビュー、プロジェクション
 		ColorF LightColor;
@@ -121,11 +122,10 @@ namespace Klibrary{
 		void SetVertexBuffer(ID3D11Buffer* vertexBuffer);
 		void SetIndexBuffer(ID3D11Buffer* indexBuffer);
 
-
 		HRESULT CreateVertexBuffer(ID3D11Buffer*& vertexBuffer, const Vertex3D* vertices, unsigned int numVertices);
 		HRESULT CreateIndexBuffer(ID3D11Buffer*& indexBuffer, const WORD* indices, unsigned int numIndices);
-
 	};
+
 
 	inline void KdirectX3D::SetViewport(float screenWidth, float screenHeight){
 		//ビューポート設定、セット

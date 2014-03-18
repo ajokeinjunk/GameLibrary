@@ -98,8 +98,8 @@ HRESULT InitializeWindow(HINSTANCE hInstance, INT windowWidth, INT windowHeight,
 //--------------------------------------------------------
 LRESULT MsgProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	Klibrary::WindowsMsg::hWnd = hWnd;
-	Klibrary::WindowsMsg::lastMassage = Klibrary::WindowsMsg::message;
+	Klibrary::WindowSystem::hWnd = hWnd;
+	Klibrary::WindowsMsg::lastMessage = Klibrary::WindowsMsg::message;
 	Klibrary::WindowsMsg::message = message;
 	Klibrary::WindowsMsg::wParam = wParam;
 	Klibrary::WindowsMsg::lParam = lParam;

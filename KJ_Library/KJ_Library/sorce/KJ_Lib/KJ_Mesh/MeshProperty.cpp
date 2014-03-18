@@ -13,11 +13,24 @@
 namespace Klibrary{
 	//========--------========--------========--------========--------========
 	//
+	//			Colorクラス
+	//
+	//========--------========--------========--------========--------========
+	const ColorF BasicColor::White  = { 1.0f, 1.0f, 1.0f, 1.0f };
+	const ColorF BasicColor::Black  = { 0.0f, 0.0f, 0.0f, 1.0f };
+	const ColorF BasicColor::Red    = { 1.0f, 0.0f, 0.0f, 1.0f };
+	const ColorF BasicColor::Green  = { 0.0f, 1.0f, 0.0f, 1.0f };
+	const ColorF BasicColor::Blue   = { 0.0f, 0.0f, 1.0f, 1.0f };
+	const ColorF BasicColor::Yellow = { 1.0f, 1.0f, 0.0f, 1.0f };
+	const ColorF BasicColor::Gray   = { 0.5f, 0.5f, 0.5f, 1.0f };
+
+
+	//========--------========--------========--------========--------========
+	//
 	//			BaseMeshInfoクラス
 	//
 	//========--------========--------========--------========--------========
 	bool BaseMeshInfo::LoadMesh(char* filename){
-
 
 		bool f = false;
 		char extention[20];
@@ -266,5 +279,7 @@ namespace Klibrary{
 		if (m_ppTexture)m_ppTexture[0]->SendShader(0);
 		Renderer->Render(m_numFaces * 3);
 	}
+
+
 
 }//namespace

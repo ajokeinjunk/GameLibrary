@@ -1,7 +1,7 @@
-#ifndef H_K_MATH_H
-#define H_K_MATH_H
+#pragma once
 
 #include <math.h>
+#include <float.h>
 #include <Windows.h>
 #include "KJ_MathDefines.h"
 //========--------========--------========--------========--------========
@@ -289,15 +289,21 @@ namespace Klibrary{
 	inline void QuaternionSlerp(Quaternion& out, const Quaternion& origin, const Quaternion& destination, float ratio);
 	inline float QuaternionDot(const Quaternion& q1, const Quaternion& q2);
 
-	//----------------------------------------------------------------------------------------------------------------------------
-	//		Matrix3クラス
-	//----------------------------------------------------------------------------------------------------------------------------
+	/** ===================================================================================
+	* @class Matrix3
+	* @brief Vector4とfloat[4][4]とfloat[16]からなる4×4行列。
+	==================================================================================== */
 	class Matrix3{
 	public:
-		Vector3 m1;
-		Vector3 m2;
-		Vector3 m3;
-
+		union {
+			struct{
+				Vector3 m1;
+				Vector3 m2;
+				Vector3 m3;
+			};
+			float m[3][3];
+			float _m[9];
+		};
 		//コンストラクタ
 		inline Matrix3();
 		inline Matrix3(const Matrix3& m);
@@ -330,15 +336,23 @@ namespace Klibrary{
 		inline void Identify();
 	};
 
-	//----------------------------------------------------------------------------------------------------------------------------
-	//		Matrix4クラス
-	//----------------------------------------------------------------------------------------------------------------------------
+	/** ===================================================================================
+	* @class Matrix4
+	* @brief Vector4とfloat[4][4]とfloat[16]からなる4×4行列。
+	==================================================================================== */
 	class Matrix4{
 		public:
-		Vector4 m1;
-		Vector4 m2;
-		Vector4 m3;
-		Vector4 m4;
+			union {
+				struct {
+					Vector4 m1;
+					Vector4 m2;
+					Vector4 m3;
+					Vector4 m4;
+				};
+				float m[4][4];
+				float _m[16];
+			};
+
 
 		//コンストラクタ
 		inline Matrix4();
@@ -356,9 +370,9 @@ namespace Klibrary{
 		//inline Matrix4& operator /=(const Matrix4& m);
 
 		//単項
-		//inline Vector4& operator[](BYTE i);
-		//inline Vector4 operator[](BYTE i)const;
-		//inline float    operator[](BYTE i)const;
+		inline Vector4& operator[](unsigned char i);
+		inline Vector4  operator[](unsigned char i)const;
+		inline float    operator[](char i)const;
 
 		//2項
 		inline const Matrix4 operator +(const Matrix4& mat)const;
@@ -394,7 +408,88 @@ namespace Klibrary{
 	inline void Mat4TransposeMatrix(Matrix4& out, const Matrix4& in);
 	inline void Mat4TransformTo2D(Vector2& screenPos, const Vector3& worldPos, Matrix4 view, Matrix4 projection, unsigned int windowWidth, unsigned int windowHeight);
 
+	/** ===================================================================================
+	* @class AABBMinMax
+	* @brief 最大値と最小値によるAABBクラス。
+	==================================================================================== */
+	struct AABBMinMax{
 
+		Vector3 maxPoint;
+		Vector3 minPoint;
+
+		AABBMinMax() :maxPoint(-FLT_MAX, -FLT_MAX, -FLT_MAX), minPoint(FLT_MAX, FLT_MAX, FLT_MAX){
+		}
+
+		~AABBMinMax(){}
+
+		//bool MakeAABB(const LPD3DXMESH& mesh);
+		static bool Collide(const AABBMinMax& p1, const AABBMinMax& p2);
+		void DrawBox(DWORD color, bool ZEnable);
+	};
+
+	/** ===================================================================================
+	* @class AABBCenterHalf
+	* @brief 中心と大きさの半分によるAABBクラス。
+	==================================================================================== */
+	struct AABBCenterHalf{
+
+		Vector3 center;
+		Vector3 half;
+
+		AABBCenterHalf() :center(0, 0, 0), half(-FLT_MAX, -FLT_MAX, -FLT_MAX){
+		}
+
+		~AABBCenterHalf(){}
+
+		//bool MakeAABB(const LPD3DXMESH& mesh);
+		bool MakeAABB(const Vector3& center, const Vector3& half);  //centerはAABBの中心点、そこからの長さがhalf。よってhalfに0以下の数値を入れてはならない。
+		void Update(const Matrix4& worldTransMatrix);
+		void UpdatePos(const Vector3& pos);
+		void UpdateScale(float scale);
+		void UpdateScale(const Vector3& scale);
+
+
+		static bool Collide(const AABBCenterHalf& p1, const AABBCenterHalf& p2);
+		void DrawBox(DWORD color, bool ZEnable);
+	};
+
+	/** ===================================================================================
+	* @class Plane
+	* @brief 無限平面を表すクラス。
+	* デバッグ描画も可能。
+	==================================================================================== */
+	class Plane{
+	public:
+		float m_p[4];
+
+	};
+
+	/** ===================================================================================
+	* @class Frustum
+	* @brief 視錘台を表すクラス。
+	* デバッグ描画も可能。
+	==================================================================================== */
+	class Frustum{
+	public:
+		enum SideType{Near, Far, Top, Bottom, Left, Num_Planes};
+
+		Plane   m_Planes[Num_Planes];
+		Vector3 m_NearClip[4];
+		Vector3 m_FarClip[4];
+
+		float   m_FiledOfView;
+		float   m_Aspect;
+		float   m_Near;
+		float   m_Far;
+
+	public:
+		Frustum();
+
+		bool IsInside() const;
+		bool IsInside(const Vector3 &point, const float radius) const;
+
+		void DebugRender();
+	};
 
 } //namespace
 
@@ -405,5 +500,3 @@ namespace Klibrary{
 #include "KJ_Vector.h"
 #include "KJ_Point.h"
 
-
-#endif

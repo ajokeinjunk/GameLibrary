@@ -6,17 +6,38 @@
 #include "../KJ_Defines/KJ_Defines.h"
 #include <string>
 #include <memory>
+#include <vector>
+#include <list>
 
 namespace Klibrary{
 	class Actor;
 	class ActorComponent;
+	class IScreenElement;
+	class IGameView;
+	
+	//後で数値範囲を変更する場合、
+	//typedefしておくと便利。
 
 	typedef jUInt32 ActorID;
 	typedef jUInt32 ComponentID;
+	typedef jUInt32 GameViewID;
+	typedef jUInt8  MouseButtonType;
+
+	const ActorID    INVALID_ACTOR_ID = 0;
+	const GameViewID INVALID_GAME_VIEW_ID = 0xffffffff;
 
 	typedef std::shared_ptr<Actor> ActorSharedPtr;
 	typedef std::weak_ptr<Actor> ActorWeakPtr;
 
+	typedef std::shared_ptr<IScreenElement>   ScreenElementSharedPtr;
+	typedef std::list<ScreenElementSharedPtr> ScreenElementList;
+
+	enum MouseButton{
+		MOUSE_L_BUTTON = 0,
+		MOUSE_M_BUTTON,
+		MOUSE_R_BUTTON,
+		MOUSE_NUM_NUTTON
+	};
 	//========--------========--------========--------========--------========
 	//
 	//		   アプリケーションクラス
@@ -27,67 +48,151 @@ namespace Klibrary{
 
 	};
 
-	//========--------========--------========--------========--------========
-	//
-	//		   ゲーム内で使われる各物体
-	//
-	//========--------========--------========--------========--------========
-	class IGameObject{
-	private:
-
+	/** ===================================================================================
+	* @class ISceneNode
+	* @brief SceneGraphの中に各ノードが組み込まれている。
+	* Scene2DGraphならScene2DNodeのオブジェクトで構成されている。
+	==================================================================================== */
+	class ISceneNode{
 	public:
+		virtual ~ISceneNode(){}
+
+		/**
+		* @brief 更新
+		* @param[in] deltaMs フレーム間の時間。単位はミリ秒。
+		*/
+		virtual void Update(const jUInt32 deltaMs) = 0;
+		/**
+		* @brief 描画
+		*/
+		virtual void Render() = 0;
 
 	};
 
-	//========--------========--------========--------========--------========
-	//
-	//		   ゲームを構成する各要素
-	//        IGameObjectとの明確な違いは識別できる点である。
-	//        IGameObjectとして作られた物体をIGameNodeとして割り振っていく。
-	//
-	//========--------========--------========--------========--------========
-	class IGameNode{
+	typedef std::vector<std::shared_ptr<ISceneNode>> SceneNodeList;
 
-	};
-
-	//========--------========--------========--------========--------========
-	//
-	//		   ゲームとしての中身を決定する
-	//
-	//========--------========--------========--------========--------========
-	//戻り値は固定であっても内部でのmapの型が違うこともあるため、
-	//全て純仮想関数とする。
-
+	/** ===================================================================================
+	* @class IGameLogic
+	* @brief ゲームとしての中身を決定する。
+	* 直接干渉できるのは上層に位置するFrameworkだ。
+	* 戻り値は固定であっても内部でのmapの型が違うこともあるため、
+	* 全て純仮想関数とする。
+	==================================================================================== */
 	class IGameLogic{
 	public:
+		/**
+		* @brief 初期化
+		*/
 		virtual void Initialize(const char* filename) = 0;
+		/**
+		* @brief ゲーム情報読み込み
+		*/
 		virtual void LoadGame() = 0;
+		/**
+		* @brief 更新
+		* @param[in] currentTime 現在の時間
+		* @param[in] elapsedTime 経過時間
+		*/
 		virtual void Update(float currentTime, float elapsedTime) = 0;
+		/**
+		* @brief 開放
+		*/
 		virtual void Release() = 0;
 
+		/**
+		* @brief ゲームステイト変更
+		* @param[in] newState 次の新しいゲームステイトを入力する。
+		*/
 		virtual void ChangeGameState(enum BaseGameState newState) = 0;
+		/**
+		* @brief アクター作成
+		*/
 		virtual void CreateActor() = 0;
+		/**
+		* @brief アクタークリア
+		*/
 		virtual void DestroyActor(const ActorID actorID) = 0;
 
+		//ゲッター
 		virtual ActorWeakPtr GetActor(const ActorID actorID) = 0;
 	};
 
-	//========--------========--------========--------========--------========
-	//
-	//			UI等の2D素材の基底となるクラス
-	//
-	//========--------========--------========--------========--------========
-	class IScreenObject{
-	public:
-		virtual ~IScreenObject(){}
+	/**
+	* @brief GameViewのタイプ列挙型
+	*/
+	enum GameViewType
+	{
+		GameView_Human,
+		//GameView_AI,
+		//GameView_Other,
+		GameViewType_Num
+	};
 
-		virtual void VInitialize() = 0;
-		virtual void VUpdate() = 0;
+	/** ===================================================================================
+	* @class IGameView
+	* @brief AIやプレイヤーがGameLogicの処理を必要な部分だけ
+	* 受け取る為のView。
+	==================================================================================== */
+	class IGameView{
+	public:
+		virtual ~IGameView(){};
+
+		/**
+		* @brief 更新
+		* @param[in] deltaMs フレーム間の時間。単位はミリ秒。
+		*/
+		virtual void VUpdate(const jUInt32 deltaMs) = 0;
+		/**
+		* @brief 描画
+		*/
 		virtual void VRender() = 0;
 
-		virtual void VRestor() = 0;
+		/**
+		* @brief アプリ直下のMsgProcから呼び出されることになるコールバック関数。
+		*/
+		virtual void CALLBACK VMsgProc() = 0;
+
+		//ゲッター
+		virtual GameViewID   VGetID() const = 0;
+		virtual GameViewType VGetType() const = 0;
+
+
 
 	};
+
+	/** ===================================================================================
+	* @class IScreenElement
+	* @brief 画面上に描画された3DオブジェクトやUIなどの画面要素を表すクラス
+	==================================================================================== */
+	class IScreenElement{
+	public:
+		virtual ~IScreenElement(){}
+
+		/**
+		* @brief 更新
+		* @param[in] deltaMs フレーム間の時間。単位はミリ秒。
+		*/
+		virtual void VUpdate(jUInt32 deltaMs) = 0;
+		/**
+		* @brief 描画
+		*/
+		virtual void VRender() = 0;
+		/**
+		* @brief Viewを通ってアプリ直下のMsgProcから呼び出されることになるコールバック関数。
+		View側で見えない時は処理させない、と言った判断ができる。
+		*/
+		virtual void CALLBACK VMsgProc() = 0;
+
+		//セッター
+		virtual void VSetZOrder(jInt32 ZOrder) = 0;
+		virtual void VSetVisible(bool visible) = 0;
+
+		//ゲッター
+		virtual bool    VIsVisible()const = 0;
+		virtual jInt32  VGetZOrder()const = 0;
+	};
+
+
 
 	//========--------========--------========--------========--------========
 	//
@@ -95,35 +200,90 @@ namespace Klibrary{
 	//
 	//========--------========--------========--------========--------========
 
+
 	//========--------========--------========--------========--------========
 	//
 	//		   入力デバイスクラス
 	//        //この部分はあくまでシステムから操作を受け取る機能として実装する。
 	//========--------========--------========--------========--------========
-	//ドラッグやダブルクリックは各々で実装する。
+	/** ===================================================================================
+	* @class IMouseHandler
+	* @brief マウス処理を実装する為の基底。
+	* 内部でどういったゲーム内処理をさせるかを実装する。
+	==================================================================================== */
 	class IMouseHandler{
 	public:
-		virtual bool  VMouseMove(const Point2L &pos, jUInt32 radius) = 0;
-		virtual bool  VMouseButtonUp(const Point2L &pos, jUInt32 radius, const std::string && buttonName) = 0;
-		virtual bool  VMouseButtonDown(const Point2L &pos, jUInt32 radius, const std::string && buttonName) = 0;
+		/**
+		* @brief マウス移動時の処理
+		* @param[in] pos マウスの位置
+		* @param[in] radius マウスポインタの大きさの半径
+		*/
+		virtual bool  MouseMove(const Point2L &pos, jUInt8 radius) = 0;
+		/**
+		* @brief マウスボタンが上がる時の処理
+		* @param[in] pos マウスの位置
+		* @param[in] radius マウスポインタの大きさの半径
+		* @param[in] mouseButton マウスボタンの種類
+		*/
+		virtual bool  MouseButtonUp(const Point2L &pos, jUInt8 radius, MouseButton mouseButton) = 0;
+		/**
+		* @brief マウスボタンが下がる時の処理
+		* @param[in] pos マウスの位置
+		* @param[in] radius マウスポインタの大きさの半径
+		* @param[in] mouseButton マウスボタンの種類
+		*/
+		virtual bool  MouseButtonDown(const Point2L &pos, jUInt8 radius, MouseButton mouseButton) = 0;
 	};
 
+	/** ===================================================================================
+	* @class IKeyBoardHandler
+	* @brief キーボード処理を実装する為の基底。
+	* 内部でどういったゲーム内処理をさせるかを実装する。
+	==================================================================================== */
 	class IKeyBoardHandler{
 	public:
-		virtual bool VKeyDown(jUInt8 key) = 0;
-		virtual bool VKeyUp(jUInt8 key) = 0;
-		virtual bool VKeyKeepDown(jUInt8 key) = 0;
+		/**
+		* @brief キーが下がる時の処理
+		* @param[in] key WindowsMessageからのuChar変換によるキー入力
+		*/
+		virtual bool KeyDown(jUInt8 key) = 0;
+		/**
+		* @brief キーが下上がる時の処理
+		* @param[in] key WindowsMessageからのuChar変換によるキー入力
+		*/
+		virtual bool KeyUp(jUInt8 key) = 0;
 	};
 
+	/** ===================================================================================
+	* @class IGamePadHandler
+	* @brief ゲームパッド処理を実装する為の基底。
+	* 内部でどういったゲーム内処理をさせるかを実装する。
+	==================================================================================== */
 	class IGamePadHandler{
 	public:
-		virtual bool VTrigger(const std::string &triggerName, float const pressure) = 0;
-		virtual bool VOnButtonDown(const std::string &buttonName, int const pressure) = 0;
-		virtual bool VOnButtonUp(const std::string &buttonName) = 0;
-		virtual bool VOnDirectionalPad(const std::string &direction) = 0;
-		virtual bool VStickMove(const std::string &stickName, float x, float y) = 0;
+		virtual bool Trigger(const std::string &triggerName, float const pressure) = 0;
+		virtual bool OnButtonDown(const std::string &buttonName, int const pressure) = 0;
+		virtual bool OnButtonUp(const std::string &buttonName) = 0;
+		virtual bool OnDirectionalPad(const std::string &direction) = 0;
+		virtual bool StickMove(const std::string &stickName, float x, float y) = 0;
 	};
 
+	//========--------========--------========--------========--------========
+	//
+	//		   レンダリング用
+	//
+	//========--------========--------========--------========--------========
+	/**
+	* @brief オブジェクト毎にシェーダーによるレンダリング設定をするためのパス
+	*/
+	enum RenderPass
+	{
+		RenderPass_0 = 0,
+		RenderPass_Static = RenderPass_0,
+		RenderPass_BackGround,
+		RenderPass_NotRendered,
+		RenderPass_Last,
+	};
 
 	//========--------========--------========--------========--------========
 	//
@@ -134,7 +294,7 @@ namespace Klibrary{
 	protected:
 
 	public:
-		virtual void VLocate() = 0;
+		virtual void Locate() = 0;
 
 	};
 

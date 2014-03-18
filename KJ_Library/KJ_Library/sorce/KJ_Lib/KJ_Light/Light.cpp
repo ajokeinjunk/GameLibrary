@@ -10,7 +10,7 @@ namespace Klibrary{
 	//========--------========--------========--------========--------========
 	//			シェーダーに設置
 	//========--------========--------========--------========--------========
-	void DirectionalLight::VLocate(){
+	void DirectionalLight::Locate(){
 		m_direction.Normalize();
 		Renderer->SetDirectionalLight(m_color, m_direction);
 	}

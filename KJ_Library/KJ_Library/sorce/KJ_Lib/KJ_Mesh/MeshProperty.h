@@ -6,10 +6,16 @@
 #include "../KJ_Texture/KJ_Texture.h"
 #include "../KJ_Math/KJ_Math.h"
 #include "../KJ_Defines/KJ_Defines.h"
+#include "Material.h"
 #include <Windows.h>
 
 namespace Klibrary{
 
+	//========--------========--------========--------========--------========
+	//
+	//			Colorクラス
+	//
+	//========--------========--------========--------========--------========
 #define COLOR_MAXIMUM 255
 
 	struct TexPos{
@@ -19,56 +25,6 @@ namespace Klibrary{
 		TexPos():u(0.0f), v(0.0f){}
 	};
 
-
-	//Color構造体
-	union ColorF{
-		struct{		
-			float r;
-			float g;
-			float b;
-			float a;
-		};
-		float argb[4];  //RGBAで格納します。
-
-		inline void operator *=(float s){
-			a *= s; r *= s; g *= s; b *= s;
-		}
-
-		inline ColorF operator *(float s){
-			ColorF color;
-			color.a *= s; color.r *= s; color.g *= s; color.b *= s;
-			return  color;
-		}
-
-
-	};	
-	
-	union ColorI{
-		struct{				
-			BYTE b;		
-			BYTE g;		
-			BYTE r;
-			BYTE a;
-		};
-		//0xFFFFFFFF
-		DWORD argb;
-
-		inline ColorI& operator *=(BYTE s){
-			a *= s; r *= s; g *= s; b *= s;
-			return *this;
-		}
-
-
-		inline ColorI operator *(float s){
-			ColorI color;
-			color.a = (BYTE)((float)color.a * s); 
-			color.r = (BYTE)((float)color.r * s);
-			color.g = (BYTE)((float)color.g * s);
-			color.b = (BYTE)((float)color.b * s);
-			return  color;
-		}
-
-	};
 
 	//頂点情報
 	struct Vertex3D{
@@ -88,14 +44,14 @@ namespace Klibrary{
 		jUInt16 materialIndex;
 	};
 
-	//マテリアル情報
-	struct Material{
-		ColorF ambient;
-		ColorF diffuese;
-		ColorF specular;
-		float  specularPower;
-		ColorF luminous;
-	};
+	////マテリアル情報
+	//struct Material{
+	//	ColorF ambient;
+	//	ColorF diffuese;
+	//	ColorF specular;
+	//	float  specularPower;
+	//	ColorF luminous;
+	//};
 
 	//========--------========--------========--------========--------========
 	//
@@ -121,7 +77,6 @@ namespace Klibrary{
 		void SortByMaterials();
 		virtual void CreateBuffer() = 0;
 	
-
 	public:
 		BaseMeshInfo() : m_numTextures(0), m_numVertices(0), m_pVertices(nullptr), m_numFaces(0),
 			m_pFaces(nullptr), m_numMaterials(0), m_pMaterials(nullptr), m_ppTexture(nullptr), m_pNumFacesPerMaterial(nullptr){}

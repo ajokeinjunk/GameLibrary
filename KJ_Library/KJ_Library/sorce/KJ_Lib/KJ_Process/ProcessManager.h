@@ -27,7 +27,7 @@ namespace Klibrary{
 		ProcessManager(){}
 		~ProcessManager(){ ClearAllProcesses(); }
 
-		jUInt32 UpdateProcesses(jUInt32 deltaMs);
+		jUInt32 UpdateProcesses(const jUInt32 deltaMs);
 		
 		ProcessWeakPtr AttachProcesses(ProcessSharedPtr pProcess);  
 		void AbortAllProcesses(bool erase);  //全動作を強制終了。immediateがTrueならProcessリストからも除外される。

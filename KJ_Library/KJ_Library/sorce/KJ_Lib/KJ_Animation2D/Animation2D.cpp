@@ -56,7 +56,6 @@ namespace Klibrary{
 			}
 			if (i == size)m_CurrentRotation = pRot->m_Rotation[size];
 
-
 			//ˆÊ’u•âŠÔ
 			size = pTrans->m_KeyFrame.size() - 1;
 			for (i = 0; i < size; i++){

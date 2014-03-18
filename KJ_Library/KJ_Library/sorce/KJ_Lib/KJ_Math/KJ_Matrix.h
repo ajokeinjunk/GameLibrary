@@ -1,6 +1,8 @@
 #ifndef H_K_MATRIX_H
 #define H_K_MATRIX_H
 
+#include <assert.h>
+
 namespace Klibrary{
 
 //========--------========--------========--------========--------========
@@ -223,17 +225,29 @@ namespace Klibrary{
 	//}
 
 	//単項
-	//inline Vector4& Matrix4::operator[](int i){
-	//	return *(&m1+i);
-	//}
-	//
-	//inline Vector4 Matrix4::operator[](int i)const{
-	//	return *(&m1+i);
-	//}
+	inline Vector4& Matrix4::operator[](unsigned char i){
+#ifdef _DEBUG
+		assert(i>0 && i<4);
+#endif
 
-	//inline float Matrix4::operator[](int i)const{
-	//	return *(&m1.x+i);
-	//}
+		return *(&m1+i*4);
+	}
+	
+	inline Vector4 Matrix4::operator[](unsigned char i)const{
+#ifdef _DEBUG
+		assert(i>0 && i<4);
+#endif
+
+		return *(&m1+i);
+	}
+
+	inline float Matrix4::operator[](char i)const{
+#ifdef _DEBUG
+		assert(i>0 && i<16);
+#endif
+
+		return *(&m1.x+i);
+	}
 
 	//2項
 	inline const Matrix4 Matrix4::operator +(const Matrix4& mat)const{
@@ -285,11 +299,76 @@ namespace Klibrary{
 	}
 
 	inline void Matrix4::Inverse(){
+		int i, j, k;
+		float lu[20], *plu[4], det;
 
+		//	j 行の要素の値の絶対値の最大値を plu[j][4] に求める
+		for (j = 0; j < 4; ++j) {
+			float max = fabs(*(plu[j] = lu + 5 * j) = m[j][0]);
+			for (i = 0; i < 4; i++) {
+				float a = fabs(plu[j][i] = m[j][i]);
+				if (a > max) max = a;
+			}
+			if (max == 0.0f) return;
+			plu[j][4] = 1.0f / max;
+		}
+
+		det = 1.0;
+
+
+		// ピボットを考慮した LU 分解
+		for (j = 0; j < 4; ++j) {
+			double max = fabs(plu[j][j] * plu[j][4]);
+			i = j;
+			for (k = j; ++k < 4;) {
+				double a = fabs(plu[k][j] * plu[k][4]);
+				if (a > max) {
+					max = a;
+					i = k;
+				}
+			}
+
+			if (i > j) {
+				float *t = plu[j];
+				plu[j] = plu[i];
+				plu[i] = t;
+				det = -det;
+			}
+			if (plu[j][j] == 0.0) return;
+			det *= plu[j][j];
+
+			for (k = j; ++k < 4;) {
+				plu[k][j] /= plu[j][j];
+				for (i = j; ++i < 4;) {
+					plu[k][i] -= plu[j][i] * plu[k][j];
+				}
+			}
+		}
+
+		// 逆行列を求める
+		for (k = 0; k < 4; ++k) {
+			// m2 に単位行列を設定する
+			for (i = 0; i < 4; ++i) {
+				_m[i * 4 + k] = (plu[i] == lu + k * 5) ? 1.0f : 0.0f;
+			}
+			// lu から逆行列を求める
+			for (i = 0; i < 4; ++i) {
+				for (j = i; ++j < 4;) {
+					_m[j * 4 + k] -= _m[i * 4 + k] * plu[j][i];
+				}
+			}
+			for (i = 4; --i >= 0;){
+				for (j = i; ++j < 4;) {
+					_m[i * 4 + k] -= plu[i][j] * _m[j * 4 + k];
+				}
+				_m[i * 4 + k] /= plu[i][i];
+			}
+		}
 	}
 
 	inline void Matrix4::Inverse(Matrix4& out){
-
+		out = *this;
+		out.Inverse();
 	}
 
 //========--------========--------========--------========--------========

@@ -5,9 +5,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Shader">
-      <UniqueIdentifier>{8ac3e9ce-821c-401d-aa56-ab1639e510c4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="KJ_Library">
       <UniqueIdentifier>{d24385b8-e277-4b3e-b338-705ccd87bef7}</UniqueIdentifier>
     </Filter>
@@ -17,29 +14,8 @@
     <Filter Include="KJ_Library\CurrentJob">
       <UniqueIdentifier>{1eb9087e-0f6e-434f-9609-d8c52d49081b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="KJ_Library\FutureJob">
-      <UniqueIdentifier>{d9af70e0-707c-470f-b479-d99ee6c30431}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="KJ_Library\Completed\KJ_Windows">
-      <UniqueIdentifier>{b2ae23fb-63ab-4484-a744-c3e1e36608cd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="KJ_Library\FutureJob\KJ_UI">
-      <UniqueIdentifier>{626f285b-0909-49b9-b0d4-711127fe6905}</UniqueIdentifier>
-    </Filter>
     <Filter Include="KJ_Library\Completed\KJ_System">
       <UniqueIdentifier>{97c99fa2-8745-4fe4-9b03-e0a1745d7615}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="KJ_Library\Completed\KJ_Sorting">
-      <UniqueIdentifier>{fc0a6105-0900-4515-967c-ff4bca5432d6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="KJ_Library\Completed\KJ_Sorting\QuickSort">
-      <UniqueIdentifier>{14a98b1f-e4fc-4d4a-80b3-1c75bbc324fa}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="KJ_Library\Completed\KJ_Sorting\Octree">
-      <UniqueIdentifier>{a5a38618-1739-433d-8692-97738d2273e1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="KJ_Library\CurrentJob\KJ_Resource">
-      <UniqueIdentifier>{bef1a3ec-5fc4-4116-bf21-469ee0ad59a8}</UniqueIdentifier>
     </Filter>
     <Filter Include="KJ_Library\CurrentJob\KJ_Scene">
       <UniqueIdentifier>{c247660b-d33a-4232-bba3-dd61a12123be}</UniqueIdentifier>
@@ -53,35 +29,8 @@
     <Filter Include="KJ_Library\Completed\KJ_Math">
       <UniqueIdentifier>{a117396a-1056-407f-8ce0-9f976dbd79ad}</UniqueIdentifier>
     </Filter>
-    <Filter Include="KJ_Library\CurrentJob\KJ_Renderer">
-      <UniqueIdentifier>{602e0136-5800-40c8-b511-9db38f6deb18}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="KJ_Library\CurrentJob\KJ_Renderer\KdirectX">
-      <UniqueIdentifier>{2a411a81-f75e-4ae0-a705-b04c1eb0eaf9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="KJ_Library\CurrentJob\KJ_Renderer\KdirectX\KJ_Shader">
-      <UniqueIdentifier>{6d6b94c1-b7f8-4f4d-b6bf-3bb4dc08de1e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="KJ_Library\CurrentJob\KJ_Renderer\KopenGL">
-      <UniqueIdentifier>{ac7deb25-ac36-40f8-be21-457e3c94f2a9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="KJ_Library\CurrentJob\KJ_Renderer\Renderer">
-      <UniqueIdentifier>{ab6ee77d-a76d-436e-8a3a-7964eb447435}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="KJ_Library\Completed\KJ_Graph">
-      <UniqueIdentifier>{475d60bf-d26d-4029-9a08-7fb14ae8f1aa}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="KJ_Library\Completed\KJ_Graph\KJ_Graph">
-      <UniqueIdentifier>{74fb8751-9938-4c38-9407-8f557aa674bf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="KJ_Library\Completed\KJ_Graph\KJ_NodeEdge">
-      <UniqueIdentifier>{d03e42c3-4e9b-43d6-b483-81b0a2c5d961}</UniqueIdentifier>
-    </Filter>
     <Filter Include="KJ_Library\Completed\KJ_GenericPrg">
       <UniqueIdentifier>{83b2ec03-86e5-4f7a-893e-805bf1063a73}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="KJ_Library\Completed\KJ_File">
-      <UniqueIdentifier>{23fda842-c665-4798-b00b-5da1fcae1cc9}</UniqueIdentifier>
     </Filter>
     <Filter Include="KJ_Library\Completed\KJ_Defines">
       <UniqueIdentifier>{96c17797-43d0-4399-b087-05086b3c64e5}</UniqueIdentifier>
@@ -95,14 +44,8 @@
     <Filter Include="KJ_Library\CurrentJob\KJ_Input">
       <UniqueIdentifier>{b6fcb491-0be1-4cb8-9cf4-c7ab4a9bf728}</UniqueIdentifier>
     </Filter>
-    <Filter Include="KJ_Library\Completed\KJ_File\textLoader">
-      <UniqueIdentifier>{072571a3-a00d-4388-b3f6-63bde64f8d47}</UniqueIdentifier>
-    </Filter>
     <Filter Include="KJ_Library\CurrentJob\KJ_GameLogic">
       <UniqueIdentifier>{342fd81f-6583-46c8-aab2-8435ebb38121}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="KJ_Library\CurrentJob\KJ_GameLogic\KJ_GameLogic3D">
-      <UniqueIdentifier>{ec4caf00-e8eb-4e54-aca5-6a60424219dc}</UniqueIdentifier>
     </Filter>
     <Filter Include="KJ_Library\CurrentJob\KJ_GameLogic\KJ_Actor">
       <UniqueIdentifier>{72d38753-98a8-47bd-a4d7-86256f6f3b82}</UniqueIdentifier>
@@ -113,70 +56,139 @@
     <Filter Include="KJ_Library\CurrentJob\KJ_GameLogic\KJ_Framework">
       <UniqueIdentifier>{0f15d8bb-c3e3-48c8-8ceb-dfc60d7c1fd1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="KJ_Library\CurrentJob\KJ_3DObject">
-      <UniqueIdentifier>{101bc40f-ca94-4955-b645-e65bc8c490d2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="KJ_Library\CurrentJob\KJ_2DObject">
-      <UniqueIdentifier>{efc63b84-013c-4c4b-9036-7d60e60264e1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="KJ_Library\CurrentJob\KJ_3DObject\KJ_Light">
-      <UniqueIdentifier>{c0522ed4-8332-4f7f-a841-cd48ed76f0c9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="KJ_Library\CurrentJob\KJ_3DObject\KJ_Mesh">
-      <UniqueIdentifier>{51fb6be3-a314-4383-99ba-a0f9887ae56f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="KJ_Library\CurrentJob\KJ_3DObject\KJ_Mesh\MeshDates">
-      <UniqueIdentifier>{06ee6dd4-2d2f-40f6-85fe-53f2e2e0b57f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="KJ_Library\CurrentJob\KJ_3DObject\KJ_Mesh\MeshDates\MeshLoader">
-      <UniqueIdentifier>{6fb3911f-3222-40c1-acf3-509f5afa73c3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="KJ_Library\CurrentJob\KJ_3DObject\KJ_Mesh\Mesh">
-      <UniqueIdentifier>{be722e89-f88c-4012-b0d7-9a5f4c2a000a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="KJ_Library\CurrentJob\KJ_3DObject\KJ_Mesh\Mesh\KJ_SkinMesh">
-      <UniqueIdentifier>{b393a57c-a38d-4fc5-b1df-5c5e427480b0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="KJ_Library\CurrentJob\KJ_3DObject\KJ_Mesh\Mesh\KJ_HardenedMesh">
-      <UniqueIdentifier>{277610f3-885f-4582-beea-ff0bf0641c07}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="KJ_Library\CurrentJob\KJ_3DObject\KJ_Mesh\Mesh\KJ_BasicForm">
-      <UniqueIdentifier>{d519281a-3aba-415f-acdc-1e36a857c1bd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="KJ_Library\CurrentJob\KJ_2DObject\KJ_Texture">
-      <UniqueIdentifier>{cce50fa1-a81d-4896-afeb-9f0c1d68adce}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="KJ_Library\CurrentJob\KJ_3DObject\KJ_Camera">
-      <UniqueIdentifier>{8ffa3dc0-79e2-458c-bbdd-8ef64b01a3a9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="KJ_Library\CurrentJob\KJ_Interface">
       <UniqueIdentifier>{cc51eee9-4402-4cd7-a559-b77192c85d0c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="KJ_Library\CurrentJob\KJ_2DObject\KJ_Animation2D">
+    <Filter Include="KJ_Library\CurrentJob\KJ_GameLogic\KJ_GameLogic">
+      <UniqueIdentifier>{ec4caf00-e8eb-4e54-aca5-6a60424219dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KJ_Library\CurrentJob\KJ_3DGraphic">
+      <UniqueIdentifier>{101bc40f-ca94-4955-b645-e65bc8c490d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Light">
+      <UniqueIdentifier>{c0522ed4-8332-4f7f-a841-cd48ed76f0c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Mesh">
+      <UniqueIdentifier>{51fb6be3-a314-4383-99ba-a0f9887ae56f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Mesh\MeshDates">
+      <UniqueIdentifier>{06ee6dd4-2d2f-40f6-85fe-53f2e2e0b57f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Mesh\MeshDates\MeshLoader">
+      <UniqueIdentifier>{6fb3911f-3222-40c1-acf3-509f5afa73c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Mesh\Mesh">
+      <UniqueIdentifier>{be722e89-f88c-4012-b0d7-9a5f4c2a000a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Mesh\Mesh\KJ_SkinMesh">
+      <UniqueIdentifier>{b393a57c-a38d-4fc5-b1df-5c5e427480b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Mesh\Mesh\KJ_HardenedMesh">
+      <UniqueIdentifier>{277610f3-885f-4582-beea-ff0bf0641c07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Mesh\Mesh\KJ_BasicForm">
+      <UniqueIdentifier>{d519281a-3aba-415f-acdc-1e36a857c1bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Camera">
+      <UniqueIdentifier>{8ffa3dc0-79e2-458c-bbdd-8ef64b01a3a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Animation3D">
+      <UniqueIdentifier>{0444c5b2-9d02-4ea8-a4b3-3d72bef3b1f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Renderer">
+      <UniqueIdentifier>{602e0136-5800-40c8-b511-9db38f6deb18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Renderer\KdirectX">
+      <UniqueIdentifier>{2a411a81-f75e-4ae0-a705-b04c1eb0eaf9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Renderer\KopenGL">
+      <UniqueIdentifier>{ac7deb25-ac36-40f8-be21-457e3c94f2a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KJ_Library\Completed\KJ_Math\KJ_Sorting">
+      <UniqueIdentifier>{fc0a6105-0900-4515-967c-ff4bca5432d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KJ_Library\Completed\KJ_Math\KJ_Sorting\QuickSort">
+      <UniqueIdentifier>{14a98b1f-e4fc-4d4a-80b3-1c75bbc324fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KJ_Library\Completed\KJ_Math\KJ_Sorting\Octree">
+      <UniqueIdentifier>{a5a38618-1739-433d-8692-97738d2273e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KJ_Library\Completed\KJ_System\KJ_Windows">
+      <UniqueIdentifier>{b2ae23fb-63ab-4484-a744-c3e1e36608cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KJ_Library\CurrentJob\KJ_Input\KJ_File">
+      <UniqueIdentifier>{23fda842-c665-4798-b00b-5da1fcae1cc9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KJ_Library\CurrentJob\KJ_Input\KJ_File\textLoader">
+      <UniqueIdentifier>{072571a3-a00d-4388-b3f6-63bde64f8d47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KJ_Library\CurrentJob\KJ_Input\KJ_Resource">
+      <UniqueIdentifier>{bef1a3ec-5fc4-4116-bf21-469ee0ad59a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KJ_Library\Completed\KJ_Math\KJ_Geometory">
+      <UniqueIdentifier>{af94f721-29cc-456e-a8a7-7e5c55c3a987}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KJ_Library\CurrentJob\KJ_2DGraphic">
+      <UniqueIdentifier>{efc63b84-013c-4c4b-9036-7d60e60264e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KJ_Library\CurrentJob\KJ_2DGraphic\KJ_Texture">
+      <UniqueIdentifier>{cce50fa1-a81d-4896-afeb-9f0c1d68adce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KJ_Library\CurrentJob\KJ_2DGraphic\KJ_Animation2D">
       <UniqueIdentifier>{6aedf075-cd70-47d4-a29c-7b901acc71a3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="KJ_Library\CurrentJob\KJ_3DObject\KJ_Animation3D">
-      <UniqueIdentifier>{0444c5b2-9d02-4ea8-a4b3-3d72bef3b1f9}</UniqueIdentifier>
+    <Filter Include="KJ_Library\CurrentJob\KJ_2DGraphic\KJ_UI">
+      <UniqueIdentifier>{626f285b-0909-49b9-b0d4-711127fe6905}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KJ_Shader">
+      <UniqueIdentifier>{8ac3e9ce-821c-401d-aa56-ab1639e510c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KJ_Shader\Shader_File">
+      <UniqueIdentifier>{a3f9b1ac-2bb9-4bed-9b31-927c511c35ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KJ_Library\Completed\KJ_System\KJ_Renderer">
+      <UniqueIdentifier>{ab6ee77d-a76d-436e-8a3a-7964eb447435}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KJ_Library\CurrentJob\KJ_GameLogic\KJ_AI">
+      <UniqueIdentifier>{a727b2cc-4e81-41a0-9044-aa2b23dbe1be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KJ_Library\CurrentJob\KJ_GameLogic\KJ_AI\KJ_Graph">
+      <UniqueIdentifier>{475d60bf-d26d-4029-9a08-7fb14ae8f1aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KJ_Library\CurrentJob\KJ_GameLogic\KJ_AI\KJ_Graph\KJ_Graph">
+      <UniqueIdentifier>{74fb8751-9938-4c38-9407-8f557aa674bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KJ_Library\CurrentJob\KJ_GameLogic\KJ_AI\KJ_Graph\KJ_NodeEdge">
+      <UniqueIdentifier>{d03e42c3-4e9b-43d6-b483-81b0a2c5d961}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KJ_Library\CurrentJob\KJ_GameLogic\KJ_GameView">
+      <UniqueIdentifier>{1cbf3e3a-15bb-4766-a981-e2096b70d009}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KJ_Library\CurrentJob\KJ_GameLogic\KJ_SceneGraph">
+      <UniqueIdentifier>{f7ee5c94-8bf8-49ea-a6e9-338ef64a719b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KJ_Library\CurrentJob\KJ_GameLogic\KJ_SceneGraph\KJ_SceneNode">
+      <UniqueIdentifier>{6ac20fd4-d6db-494d-a33a-798ca08096b8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sorce\KJ_Lib\TextLoader\textLoader.cpp">
-      <Filter>KJ_Library\Completed\KJ_File\textLoader</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_Input\KJ_File\textLoader</Filter>
     </ClCompile>
     <ClCompile Include="sorce\KJ_Lib\KJ_Mesh\KJ_HardenedMesh\KJ_HardenedMesh.cpp">
-      <Filter>KJ_Library\CurrentJob\KJ_3DObject\KJ_Mesh\Mesh\KJ_HardenedMesh</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Mesh\Mesh\KJ_HardenedMesh</Filter>
     </ClCompile>
     <ClCompile Include="sorce\KJ_Lib\KJ_Mesh\KJ_BasicForm\KJ_BasicForm.cpp">
-      <Filter>KJ_Library\CurrentJob\KJ_3DObject\KJ_Mesh\Mesh\KJ_BasicForm</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Mesh\Mesh\KJ_BasicForm</Filter>
     </ClCompile>
     <ClCompile Include="sorce\KJ_Lib\KJ_Mesh\KJ_SkinMesh\KJ_SkinMesh.cpp">
-      <Filter>KJ_Library\CurrentJob\KJ_3DObject\KJ_Mesh\Mesh\KJ_SkinMesh</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Mesh\Mesh\KJ_SkinMesh</Filter>
     </ClCompile>
     <ClCompile Include="sorce\KJ_Lib\KJ_Scene\KJ_SceneSystem.cpp">
       <Filter>KJ_Library\CurrentJob\KJ_Scene</Filter>
     </ClCompile>
     <ClCompile Include="sorce\KJ_Lib\KJ_Renderer\KJ_DirectX\KJ_DirectX3D.cpp">
-      <Filter>KJ_Library\CurrentJob\KJ_Renderer\KdirectX</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Renderer\KdirectX</Filter>
     </ClCompile>
     <ClCompile Include="sorce\KJ_Lib\KJ_Debug\KJ_Debug.cpp">
       <Filter>KJ_Library\Completed\KJ_Debug</Filter>
@@ -185,25 +197,25 @@
       <Filter>KJ_Library\CurrentJob\KJ_GameLogic\KJ_Framework</Filter>
     </ClCompile>
     <ClCompile Include="sorce\KJ_Lib\KJ_Camera\KJ_Camera.cpp">
-      <Filter>KJ_Library\CurrentJob\KJ_3DObject\KJ_Camera</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Camera</Filter>
     </ClCompile>
     <ClCompile Include="sorce\KJ_Lib\KJ_Windows\KJ_Window.cpp">
-      <Filter>KJ_Library\Completed\KJ_Windows</Filter>
+      <Filter>KJ_Library\Completed\KJ_System\KJ_Windows</Filter>
     </ClCompile>
     <ClCompile Include="sorce\KJ_Lib\KJ_Windows\KJ_WindowSystem.cpp">
-      <Filter>KJ_Library\Completed\KJ_Windows</Filter>
+      <Filter>KJ_Library\Completed\KJ_System\KJ_Windows</Filter>
     </ClCompile>
     <ClCompile Include="sorce\KJ_Lib\KJ_Mesh\KJ_Mesh.cpp">
-      <Filter>KJ_Library\CurrentJob\KJ_3DObject\KJ_Mesh\Mesh</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Mesh\Mesh</Filter>
     </ClCompile>
     <ClCompile Include="sorce\KJ_Lib\KJ_Sorting\QuickSort\QuickSort.cpp">
-      <Filter>KJ_Library\Completed\KJ_Sorting\QuickSort</Filter>
+      <Filter>KJ_Library\Completed\KJ_Math\KJ_Sorting\QuickSort</Filter>
     </ClCompile>
     <ClCompile Include="sorce\KJ_Lib\KJ_Sorting\Octree\Octree.cpp">
-      <Filter>KJ_Library\Completed\KJ_Sorting\Octree</Filter>
+      <Filter>KJ_Library\Completed\KJ_Math\KJ_Sorting\Octree</Filter>
     </ClCompile>
     <ClCompile Include="sorce\KJ_Lib\KJ_Sorting\Octree\OctreeNode.cpp">
-      <Filter>KJ_Library\Completed\KJ_Sorting\Octree</Filter>
+      <Filter>KJ_Library\Completed\KJ_Math\KJ_Sorting\Octree</Filter>
     </ClCompile>
     <ClCompile Include="sorce\KJ_Lib\KJ_Process\Process.cpp">
       <Filter>KJ_Library\Completed\KJ_Process</Filter>
@@ -212,40 +224,37 @@
       <Filter>KJ_Library\Completed\KJ_Process</Filter>
     </ClCompile>
     <ClCompile Include="sorce\KJ_Lib\KJ_Graph\NodeEdge\NodeEdge.cpp">
-      <Filter>KJ_Library\Completed\KJ_Graph\KJ_NodeEdge</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_GameLogic\KJ_AI\KJ_Graph\KJ_NodeEdge</Filter>
     </ClCompile>
     <ClCompile Include="sorce\KJ_Lib\KJ_Graph\Graph\Graph.cpp">
-      <Filter>KJ_Library\Completed\KJ_Graph\KJ_Graph</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_GameLogic\KJ_AI\KJ_Graph\KJ_Graph</Filter>
     </ClCompile>
     <ClCompile Include="sorce\KJ_Lib\KJ_Texture\KJ_Texture.cpp">
-      <Filter>KJ_Library\CurrentJob\KJ_2DObject\KJ_Texture</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_2DGraphic\KJ_Texture</Filter>
     </ClCompile>
     <ClCompile Include="sorce\KJ_Lib\KJ_Renderer\KJ_Renderer.cpp">
-      <Filter>KJ_Library\CurrentJob\KJ_Renderer\Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="sorce\KJ_Lib\KJ_Renderer\KJ_RendererSystem.cpp">
-      <Filter>KJ_Library\CurrentJob\KJ_Renderer\Renderer</Filter>
+      <Filter>KJ_Library\Completed\KJ_System\KJ_Renderer</Filter>
     </ClCompile>
     <ClCompile Include="sorce\KJ_Lib\KJ_Mesh\MeshProperty.cpp">
-      <Filter>KJ_Library\CurrentJob\KJ_3DObject\KJ_Mesh\MeshDates</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Mesh\MeshDates</Filter>
     </ClCompile>
     <ClCompile Include="sorce\KJ_Lib\KJ_File\KJ_File.cpp">
-      <Filter>KJ_Library\Completed\KJ_File</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_Input\KJ_File</Filter>
     </ClCompile>
     <ClCompile Include="sorce\KJ_Lib\KJ_Resource\AllResourceManager.cpp">
-      <Filter>KJ_Library\CurrentJob\KJ_Resource</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_Input\KJ_Resource</Filter>
     </ClCompile>
     <ClCompile Include="sorce\KJ_Lib\KJ_Light\Light.cpp">
-      <Filter>KJ_Library\CurrentJob\KJ_3DObject\KJ_Light</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Light</Filter>
     </ClCompile>
     <ClCompile Include="sorce\KJ_Lib\KJ_Mesh\KJ_MeshLoader\MQO.cpp">
-      <Filter>KJ_Library\CurrentJob\KJ_3DObject\KJ_Mesh\MeshDates\MeshLoader</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Mesh\MeshDates\MeshLoader</Filter>
     </ClCompile>
     <ClCompile Include="sorce\KJ_Lib\KJ_Mesh\KJ_MeshLoader\FBX.cpp">
-      <Filter>KJ_Library\CurrentJob\KJ_3DObject\KJ_Mesh\MeshDates\MeshLoader</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Mesh\MeshDates\MeshLoader</Filter>
     </ClCompile>
     <ClCompile Include="sorce\KJ_Lib\KJ_Mesh\KJ_MeshLoader\FBXLoader.cpp">
-      <Filter>KJ_Library\CurrentJob\KJ_3DObject\KJ_Mesh\MeshDates\MeshLoader</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Mesh\MeshDates\MeshLoader</Filter>
     </ClCompile>
     <ClCompile Include="sorce\TestGame\TestGame.cpp">
       <Filter>TestGame</Filter>
@@ -254,10 +263,7 @@
       <Filter>KJ_Library</Filter>
     </ClCompile>
     <ClCompile Include="sorce\KJ_Lib\KJ_Camera\CameraManager.cpp">
-      <Filter>KJ_Library\CurrentJob\KJ_3DObject\KJ_Camera</Filter>
-    </ClCompile>
-    <ClCompile Include="sorce\KJ_Lib\KJ_Input\InputData.cpp">
-      <Filter>KJ_Library\CurrentJob\KJ_Input</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Camera</Filter>
     </ClCompile>
     <ClCompile Include="sorce\KJ_Lib\KJ_Scene\AllScenes\TestScene.cpp">
       <Filter>TestGame</Filter>
@@ -269,33 +275,48 @@
       <Filter>KJ_Library\CurrentJob\KJ_Input</Filter>
     </ClCompile>
     <ClCompile Include="sorce\KJ_Lib\KJ_Camera\CameraElements.cpp">
-      <Filter>KJ_Library\CurrentJob\KJ_3DObject\KJ_Camera</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Camera</Filter>
     </ClCompile>
     <ClCompile Include="sorce\KJ_Lib\KJ_GameLogic\KJ_BaseGameLogic3D\BaseGameLogic.cpp">
-      <Filter>KJ_Library\CurrentJob\KJ_GameLogic\KJ_GameLogic3D</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_GameLogic\KJ_GameLogic</Filter>
     </ClCompile>
     <ClCompile Include="sorce\KJ_Lib\KJ_Animation2D\Animtaion2DManager.cpp">
-      <Filter>KJ_Library\CurrentJob\KJ_2DObject\KJ_Animation2D</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_2DGraphic\KJ_Animation2D</Filter>
     </ClCompile>
     <ClCompile Include="sorce\KJ_Lib\KJ_Animation2D\InputAnimtionData.cpp">
-      <Filter>KJ_Library\CurrentJob\KJ_2DObject\KJ_Animation2D</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_2DGraphic\KJ_Animation2D</Filter>
     </ClCompile>
     <ClCompile Include="sorce\KJ_Lib\KJ_Animation2D\Animation2D.cpp">
-      <Filter>KJ_Library\CurrentJob\KJ_2DObject\KJ_Animation2D</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_2DGraphic\KJ_Animation2D</Filter>
+    </ClCompile>
+    <ClCompile Include="sorce\KJ_Lib\KJ_Shader\KJ_Shader.cpp">
+      <Filter>KJ_Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="sorce\KJ_Lib\KJ_Renderer\KJ_RenderSystem.cpp">
+      <Filter>KJ_Library\Completed\KJ_System\KJ_Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="sorce\KJ_Lib\KJ_SceneGraph\SceneNode\KJ_SceneNode.cpp">
+      <Filter>KJ_Library\CurrentJob\KJ_GameLogic\KJ_SceneGraph\KJ_SceneNode</Filter>
+    </ClCompile>
+    <ClCompile Include="sorce\KJ_Lib\KJ_Math\KJ_Geometry\KJ_Geometory.cpp">
+      <Filter>KJ_Library\Completed\KJ_Math\KJ_Geometory</Filter>
+    </ClCompile>
+    <ClCompile Include="sorce\KJ_Lib\KJ_View\GameView.cpp">
+      <Filter>KJ_Library\CurrentJob\KJ_GameLogic\KJ_GameView</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sorce\KJ_Lib\TextLoader\textLoader.h">
-      <Filter>KJ_Library\Completed\KJ_File\textLoader</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_Input\KJ_File\textLoader</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_Mesh\KJ_HardenedMesh\KJ_HardenedMesh.h">
-      <Filter>KJ_Library\CurrentJob\KJ_3DObject\KJ_Mesh\Mesh\KJ_HardenedMesh</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Mesh\Mesh\KJ_HardenedMesh</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_Mesh\KJ_BasicForm\KJ_BasicForm.h">
-      <Filter>KJ_Library\CurrentJob\KJ_3DObject\KJ_Mesh\Mesh\KJ_BasicForm</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Mesh\Mesh\KJ_BasicForm</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_Mesh\KJ_SkinMesh\KJ_SkinMesh.h">
-      <Filter>KJ_Library\CurrentJob\KJ_3DObject\KJ_Mesh\Mesh\KJ_SkinMesh</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Mesh\Mesh\KJ_SkinMesh</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_Scene\KJ_SceneSystem.h">
       <Filter>KJ_Library\CurrentJob\KJ_Scene</Filter>
@@ -319,12 +340,9 @@
       <Filter>KJ_Library\Completed\KJ_Math</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_Renderer\KJ_DirectX\KJ_DirectX3D.h">
-      <Filter>KJ_Library\CurrentJob\KJ_Renderer\KdirectX</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Renderer\KdirectX</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_GenericPrg\KJ_GenericPrg.h">
-      <Filter>KJ_Library\Completed\KJ_GenericPrg</Filter>
-    </ClInclude>
-    <ClInclude Include="sorce\KJ_Lib\KJ_GenericPrg\KJ_HashTable.h">
       <Filter>KJ_Library\Completed\KJ_GenericPrg</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_Debug\KJ_Debug.h">
@@ -334,22 +352,19 @@
       <Filter>KJ_Library\CurrentJob\KJ_GameLogic\KJ_Framework</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_Camera\KJ_Camera.h">
-      <Filter>KJ_Library\CurrentJob\KJ_3DObject\KJ_Camera</Filter>
-    </ClInclude>
-    <ClInclude Include="sorce\KJ_Lib\KJ_System\KJ_RendererFactory.h">
-      <Filter>KJ_Library\Completed\KJ_System</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Camera</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_System\KJ_System.h">
       <Filter>KJ_Library\Completed\KJ_System</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_Windows\KJ_Window.h">
-      <Filter>KJ_Library\Completed\KJ_Windows</Filter>
+      <Filter>KJ_Library\Completed\KJ_System\KJ_Windows</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_Windows\KJ_WindowSystem.h">
-      <Filter>KJ_Library\Completed\KJ_Windows</Filter>
+      <Filter>KJ_Library\Completed\KJ_System\KJ_Windows</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_Mesh\KJ_Mesh.h">
-      <Filter>KJ_Library\CurrentJob\KJ_3DObject\KJ_Mesh\Mesh</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Mesh\Mesh</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_GameObject\KJ_GameObject.h">
       <Filter>KJ_Library\CurrentJob\KJ_GameLogic\KJ_GameObject</Filter>
@@ -361,28 +376,16 @@
       <Filter>KJ_Library\Completed\KJ_Defines</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_Sorting\QuickSort\QuickSort.h">
-      <Filter>KJ_Library\Completed\KJ_Sorting\QuickSort</Filter>
+      <Filter>KJ_Library\Completed\KJ_Math\KJ_Sorting\QuickSort</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_Sorting\Octree\Octree.h">
-      <Filter>KJ_Library\Completed\KJ_Sorting\Octree</Filter>
+      <Filter>KJ_Library\Completed\KJ_Math\KJ_Sorting\Octree</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_Sorting\Octree\OctreeNode.h">
-      <Filter>KJ_Library\Completed\KJ_Sorting\Octree</Filter>
+      <Filter>KJ_Library\Completed\KJ_Math\KJ_Sorting\Octree</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_Sorting\Octree\OctreeData.h">
-      <Filter>KJ_Library\Completed\KJ_Sorting\Octree</Filter>
-    </ClInclude>
-    <ClInclude Include="sorce\KJ_Lib\KJ_Shader\KJ_Shader.h">
-      <Filter>KJ_Library\CurrentJob\KJ_Renderer\KdirectX\KJ_Shader</Filter>
-    </ClInclude>
-    <ClInclude Include="Shader\PSMaterial.h">
-      <Filter>Shader</Filter>
-    </ClInclude>
-    <ClInclude Include="Shader\PSLight.h">
-      <Filter>Shader</Filter>
-    </ClInclude>
-    <ClInclude Include="Shader\PSMethodDefinition.h">
-      <Filter>Shader</Filter>
+      <Filter>KJ_Library\Completed\KJ_Math\KJ_Sorting\Octree</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_Process\Process.h">
       <Filter>KJ_Library\Completed\KJ_Process</Filter>
@@ -391,43 +394,40 @@
       <Filter>KJ_Library\Completed\KJ_Process</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_Graph\NodeEdge\NodeEdge.h">
-      <Filter>KJ_Library\Completed\KJ_Graph\KJ_NodeEdge</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_GameLogic\KJ_AI\KJ_Graph\KJ_NodeEdge</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_Graph\Graph\Graph.h">
-      <Filter>KJ_Library\Completed\KJ_Graph\KJ_Graph</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_GameLogic\KJ_AI\KJ_Graph\KJ_Graph</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_UI\UI.h">
-      <Filter>KJ_Library\FutureJob\KJ_UI</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_2DGraphic\KJ_UI</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_Texture\KJ_Texture.h">
-      <Filter>KJ_Library\CurrentJob\KJ_2DObject\KJ_Texture</Filter>
-    </ClInclude>
-    <ClInclude Include="Shader\PSBufferAndMethods.h">
-      <Filter>Shader</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_2DGraphic\KJ_Texture</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_Renderer\KJ_Renderer.h">
-      <Filter>KJ_Library\CurrentJob\KJ_Renderer\Renderer</Filter>
+      <Filter>KJ_Library\Completed\KJ_System\KJ_Renderer</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_Renderer\KJ_RenderSystem.h">
-      <Filter>KJ_Library\CurrentJob\KJ_Renderer\Renderer</Filter>
+      <Filter>KJ_Library\Completed\KJ_System\KJ_Renderer</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_Resource\ResourceManager.h">
-      <Filter>KJ_Library\CurrentJob\KJ_Resource</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_Input\KJ_Resource</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_Actor\Actor.h">
       <Filter>KJ_Library\CurrentJob\KJ_GameLogic\KJ_Actor</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_Mesh\MeshProperty.h">
-      <Filter>KJ_Library\CurrentJob\KJ_3DObject\KJ_Mesh\MeshDates</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Mesh\MeshDates</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_File\KJ_File.h">
-      <Filter>KJ_Library\Completed\KJ_File</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_Input\KJ_File</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_Resource\AllResourceManager.h">
-      <Filter>KJ_Library\CurrentJob\KJ_Resource</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_Input\KJ_Resource</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_Light\Light.h">
-      <Filter>KJ_Library\CurrentJob\KJ_3DObject\KJ_Light</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Light</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_Scene\KJ_SceneManager.h">
       <Filter>KJ_Library\CurrentJob\KJ_Scene\AllScenes</Filter>
@@ -436,7 +436,7 @@
       <Filter>KJ_Library\CurrentJob\KJ_Scene\AllScenes</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_Mesh\KJ_MeshLoader\FBXLoader.h">
-      <Filter>KJ_Library\CurrentJob\KJ_3DObject\KJ_Mesh\MeshDates\MeshLoader</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Mesh\MeshDates\MeshLoader</Filter>
     </ClInclude>
     <ClInclude Include="sorce\TestGame\TestGame.h">
       <Filter>TestGame</Filter>
@@ -445,10 +445,7 @@
       <Filter>KJ_Library</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_Camera\CameraManager.h">
-      <Filter>KJ_Library\CurrentJob\KJ_3DObject\KJ_Camera</Filter>
-    </ClInclude>
-    <ClInclude Include="sorce\KJ_Lib\KJ_Input\InputData.h">
-      <Filter>KJ_Library\CurrentJob\KJ_Input</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Camera</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_Input\InputDevice.h">
       <Filter>KJ_Library\CurrentJob\KJ_Input</Filter>
@@ -466,27 +463,60 @@
       <Filter>KJ_Library\CurrentJob\KJ_Input</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_Camera\CameraElements.h">
-      <Filter>KJ_Library\CurrentJob\KJ_3DObject\KJ_Camera</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Camera</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_GameLogic\KJ_BaseGameLogic3D\BaseGameLogic.h">
-      <Filter>KJ_Library\CurrentJob\KJ_GameLogic\KJ_GameLogic3D</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_GameLogic\KJ_GameLogic</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_Animation2D\Animation2DManager.h">
-      <Filter>KJ_Library\CurrentJob\KJ_2DObject\KJ_Animation2D</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_2DGraphic\KJ_Animation2D</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_Animation2D\InputAnimation2D.h">
-      <Filter>KJ_Library\CurrentJob\KJ_2DObject\KJ_Animation2D</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_2DGraphic\KJ_Animation2D</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_Animation2D\Animation2D.h">
-      <Filter>KJ_Library\CurrentJob\KJ_2DObject\KJ_Animation2D</Filter>
+      <Filter>KJ_Library\CurrentJob\KJ_2DGraphic\KJ_Animation2D</Filter>
+    </ClInclude>
+    <ClInclude Include="sorce\KJ_Lib\KJ_Mesh\Material.h">
+      <Filter>KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="sorce\KJ_Lib\KJ_Mesh\Color.h">
+      <Filter>KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="sorce\KJ_Lib\KJ_SceneGraph\SceneGraph.h">
+      <Filter>KJ_Library\CurrentJob\KJ_GameLogic\KJ_SceneGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader\PSBufferAndMethods.h">
+      <Filter>KJ_Shader\Shader_File</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader\PSLight.h">
+      <Filter>KJ_Shader\Shader_File</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader\PSMaterial.h">
+      <Filter>KJ_Shader\Shader_File</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader\PSMethodDefinition.h">
+      <Filter>KJ_Shader\Shader_File</Filter>
+    </ClInclude>
+    <ClInclude Include="sorce\KJ_Lib\KJ_Shader\KJ_Shader.h">
+      <Filter>KJ_Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="sorce\KJ_Lib\KJ_System\KJ_RendererFactory.h">
+      <Filter>KJ_Library\Completed\KJ_System\KJ_Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="sorce\KJ_Lib\KJ_SceneGraph\SceneNode\KJ_SceneNode.h">
+      <Filter>KJ_Library\CurrentJob\KJ_GameLogic\KJ_SceneGraph\KJ_SceneNode</Filter>
+    </ClInclude>
+    <ClInclude Include="sorce\KJ_Lib\KJ_View\GameView.h">
+      <Filter>KJ_Library\CurrentJob\KJ_GameLogic\KJ_GameView</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Shader\VS.hlsl">
-      <Filter>Shader</Filter>
+      <Filter>KJ_Shader\Shader_File</Filter>
     </None>
     <None Include="Shader\PS.hlsl">
-      <Filter>Shader</Filter>
+      <Filter>KJ_Shader\Shader_File</Filter>
     </None>
   </ItemGroup>
 </Project>

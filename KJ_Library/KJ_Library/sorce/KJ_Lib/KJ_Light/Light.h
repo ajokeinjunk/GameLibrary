@@ -44,7 +44,7 @@ namespace Klibrary{
 			m_color.b = color.b;
 		}
 
-		void VLocate();
+		void Locate();
 		
 		//アクセサ
 		void SetDirection(const Vector3& dir){ m_direction = dir; }

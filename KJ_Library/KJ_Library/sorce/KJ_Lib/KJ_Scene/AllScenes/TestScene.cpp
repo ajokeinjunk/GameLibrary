@@ -24,9 +24,9 @@ namespace Klibrary{
 			success = loader.LoadScene("cameraText.fbx");
 
 			AnimationCamera motionCam;
-			loader.LoadCameraAnimation(motionCam);
+			//loader.LoadCameraAnimation(motionCam);
 			
-			loader.LoadCamera(camera);
+			//loader.LoadCamera(camera);
 			
 			camera->SetFoV(0.785398185f);
 			camera->SetCameraInfoID(99);
@@ -52,8 +52,6 @@ namespace Klibrary{
 			board->Update();
 
 			light = new DirectionalLight(Vector3(1, 1, -3));
-
-			
 
 			m_IsInitialized = true;
 		}
@@ -88,7 +86,7 @@ namespace Klibrary{
 		CameraManager::ClearTargetView();
 		CameraManager::Activate();
 
-		light->VLocate();
+		light->Locate();
 
 		//gMQO->Render();
 		gMQOTube->Render();

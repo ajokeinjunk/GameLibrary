@@ -10,5 +10,4 @@
 #define DEFAULT_ARRAY_DELETE(x) {std::default_delete<x[]>()}
 #define SIZE_OF_ARRAY(x) {sizeof(x)/sizeof(x[0]) }
 
-
 #endif

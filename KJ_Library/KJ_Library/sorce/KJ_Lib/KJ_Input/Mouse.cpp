@@ -1,5 +1,4 @@
 #include "Mouse.h"
-#include "../KJ_Input/InputData.h"
 #include "../KJ_Windows/KJ_WindowSystem.h"
 
 namespace Klibrary{
@@ -28,12 +27,12 @@ namespace Klibrary{
 		m_IsOnePull = false;
 
 		if (WindowsMsg::message == WM_LBUTTONDOWN){
-			if (WindowsMsg::message != WindowsMsg::lastMassage){
+			if (WindowsMsg::message != WindowsMsg::lastMessage){
 				m_IsOnePush = true;
 			}
 		}
 		else if (WindowsMsg::message == WM_LBUTTONUP){
-			if (WindowsMsg::message != WindowsMsg::lastMassage){
+			if (WindowsMsg::message != WindowsMsg::lastMessage){
 				m_IsOnePull = true;
 			}
 		}

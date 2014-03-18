@@ -9,7 +9,7 @@
 
 namespace Klibrary{
 	struct RotationKeyFrame{
-		std::vector<Vector2> m_Rotation;  //x,y共に中身は-1～1 
+		std::vector<Vector2> m_Rotation;  //x,y共に中身はラジアン
 		std::vector<jUInt32> m_KeyFrame;  //xがz軸回転、yがy軸回転。
 	};
 
@@ -34,6 +34,10 @@ namespace Klibrary{
 
 	typedef std::shared_ptr<Motion2D> Motion2DSharedPtr;
 	typedef std::unordered_map<jUInt8, Motion2DSharedPtr> MotionsMap;   //キーはモーションID、データは全キーフレームデータ
+
+	class Animation2D;
+	typedef std::shared_ptr<Animation2D> Animation2DSharedPtr;
+	typedef std::weak_ptr<Animation2D> Animation2DWeakPtr;
 
 	//全テイクアニメーション情報を格納
 	class Animation2D{

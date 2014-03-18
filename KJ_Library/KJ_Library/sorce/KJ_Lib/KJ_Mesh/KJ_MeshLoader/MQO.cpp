@@ -40,10 +40,10 @@ namespace Klibrary{
 
 			//材質色読み込み
 			loader->SearchLine("col");
-			meshInfo.m_pMaterials[m].diffuese.r = loader->LoadFloat();
-			meshInfo.m_pMaterials[m].diffuese.g = loader->LoadFloat();
-			meshInfo.m_pMaterials[m].diffuese.b = loader->LoadFloat();
-			meshInfo.m_pMaterials[m].diffuese.a = loader->LoadFloat();
+			meshInfo.m_pMaterials[m].m_Diffuse.r = loader->LoadFloat();
+			meshInfo.m_pMaterials[m].m_Diffuse.g = loader->LoadFloat();
+			meshInfo.m_pMaterials[m].m_Diffuse.b = loader->LoadFloat();
+			meshInfo.m_pMaterials[m].m_Diffuse.a = loader->LoadFloat();
 
 			//ディフューズ読み込み
 			loader->SearchLine("dif");
@@ -67,17 +67,17 @@ namespace Klibrary{
 			power = loader->LoadFloat();
 
 
-			meshInfo.m_pMaterials[m].ambient.r = amb;
-			meshInfo.m_pMaterials[m].ambient.g = amb;
-			meshInfo.m_pMaterials[m].ambient.b = amb;
-			meshInfo.m_pMaterials[m].ambient.a = 1.0f;
+			meshInfo.m_pMaterials[m].m_Ambient.r = amb;
+			meshInfo.m_pMaterials[m].m_Ambient.g = amb;
+			meshInfo.m_pMaterials[m].m_Ambient.b = amb;
+			meshInfo.m_pMaterials[m].m_Ambient.a = 1.0f;
 
-			meshInfo.m_pMaterials[m].specular.r = spec;
-			meshInfo.m_pMaterials[m].specular.g = spec;
-			meshInfo.m_pMaterials[m].specular.b = spec;
-			meshInfo.m_pMaterials[m].specular.a = spec;
+			meshInfo.m_pMaterials[m].m_Specular.r = spec;
+			meshInfo.m_pMaterials[m].m_Specular.g = spec;
+			meshInfo.m_pMaterials[m].m_Specular.b = spec;
+			meshInfo.m_pMaterials[m].m_Specular.a = spec;
 
-			meshInfo.m_pMaterials[m].specularPower = power;
+			meshInfo.m_pMaterials[m].m_SpecularSharpness = power;
 
 			/*workM[m].luminousA = emi;
 			workM[m].luminousR = emi;

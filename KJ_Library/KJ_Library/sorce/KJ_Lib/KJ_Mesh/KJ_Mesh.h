@@ -5,12 +5,28 @@
 #include "../KJ_Windows/KJ_WindowSystem.h"
 #include "../KJ_Mesh/MeshProperty.h"
 #include "../KJ_Renderer/KJ_RenderSystem.h"
+#include "../KJ_SceneGraph/SceneNode/KJ_SceneNode.h"
 
 namespace Klibrary{
-	
 	//========--------========--------========--------========--------========
 	//
-	//			基本ゲームアクタークラス
+	//			MeshNode(仮)クラス
+	//
+	//========--------========--------========--------========--------========
+	class MeshNode : public Scene3DNode{
+	protected:
+		char* m_MeshFileName; 
+
+	public:
+		MeshNode(ActorID actorID, char* meshFileName, RenderPass renderPass, const Matrix4& toWorld) :Scene3DNode(actorID, renderPass, toWorld){
+			m_MeshFileName = meshFileName;
+		}
+		virtual void Render() override;
+	};
+
+	//========--------========--------========--------========--------========
+	//
+	//			Meshクラス
 	//
 	//========--------========--------========--------========--------========
 	class KJ_Mesh{

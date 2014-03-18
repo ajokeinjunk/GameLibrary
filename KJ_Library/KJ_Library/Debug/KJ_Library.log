@@ -1,0 +1,67 @@
+﻿2014/03/14 13:07:34 にビルドを開始しました。
+     1>ノード 2 上のプロジェクト "C:\Users\worker\Desktop\GameLibrary\KJ_Library\KJ_Library\KJ_Library.vcxproj" (Build ターゲット)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"libfbxsdk-mt.lib" /I"libfbxsdk-md.lib" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm- /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt /MP sorce\KJ_Lib\KJ_Framework\KJ_Framework.cpp sorce\KJ_Lib\KJ_GameLogic\KJ_BaseGameLogic3D\BaseGameLogic.cpp sorce\KJ_Lib\KJ_Light\Light.cpp sorce\KJ_Lib\KJ_Mesh\KJ_BasicForm\KJ_BasicForm.cpp sorce\KJ_Lib\KJ_Mesh\KJ_HardenedMesh\KJ_HardenedMesh.cpp sorce\KJ_Lib\KJ_Mesh\KJ_Mesh.cpp sorce\KJ_Lib\KJ_SceneGraph\SceneNode\KJ_SceneNode.cpp sorce\KJ_Lib\KJ_Scene\AllScenes\TestScene.cpp sorce\KJ_Lib\KJ_Scene\KJ_SceneSystem.cpp sorce\KJ_Lib\KJ_Shader\KJ_Shader.cpp sorce\KJ_Lib\KJ_View\GameView.cpp sorce\TestGame\TestGame.cpp
+         KJ_Framework.cpp
+         BaseGameLogic.cpp
+         Light.cpp
+         KJ_BasicForm.cpp
+         KJ_HardenedMesh.cpp
+         KJ_Mesh.cpp
+         KJ_SceneNode.cpp
+         TestScene.cpp
+         KJ_SceneSystem.cpp
+         KJ_Shader.cpp
+         GameView.cpp
+         TestGame.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\worker\Desktop\GameLibrary\KJ_Library\Debug\KJ_Library.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\worker\Desktop\GameLibrary\KJ_Library\Debug\KJ_Library.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\worker\Desktop\GameLibrary\KJ_Library\Debug\KJ_Library.lib" /MACHINE:X86 Debug\Application.obj
+         Debug\Animation2D.obj
+         Debug\Animtaion2DManager.obj
+         Debug\InputAnimtionData.obj
+         Debug\CameraManager.obj
+         Debug\CameraElements.obj
+         Debug\KJ_Camera.obj
+         Debug\KJ_Debug.obj
+         Debug\KJ_File.obj
+         Debug\KJ_Framework.obj
+         Debug\BaseGameLogic.obj
+         Debug\Graph.obj
+         Debug\NodeEdge.obj
+         Debug\InputDeviceManager.obj
+         Debug\Mouse.obj
+         Debug\Light.obj
+         Debug\KJ_Geometory.obj
+         Debug\KJ_BasicForm.obj
+         Debug\KJ_HardenedMesh.obj
+         Debug\KJ_Mesh.obj
+         Debug\FBX.obj
+         Debug\FBXLoader.obj
+         Debug\MQO.obj
+         Debug\MeshProperty.obj
+         Debug\KJ_SkinMesh.obj
+         Debug\Process.obj
+         Debug\ProcessManager.obj
+         Debug\KJ_DirectX3D.obj
+         Debug\KJ_Renderer.obj
+         Debug\KJ_RenderSystem.obj
+         Debug\AllResourceManager.obj
+         Debug\KJ_SceneNode.obj
+         Debug\TestScene.obj
+         Debug\KJ_SceneSystem.obj
+         Debug\KJ_Shader.obj
+         Debug\Octree.obj
+         Debug\OctreeNode.obj
+         Debug\QuickSort.obj
+         Debug\KJ_Texture.obj
+         Debug\GameView.obj
+         Debug\KJ_Window.obj
+         Debug\KJ_WindowSystem.obj
+         Debug\textLoader.obj
+         Debug\TestGame.obj
+         KJ_Library.vcxproj -> C:\Users\worker\Desktop\GameLibrary\KJ_Library\Debug\KJ_Library.exe
+     1>プロジェクト "C:\Users\worker\Desktop\GameLibrary\KJ_Library\KJ_Library\KJ_Library.vcxproj" (Build ターゲット) のビルドが完了しました。
+
+ビルドに成功しました。
+
+経過時間 00:00:21.53

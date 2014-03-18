@@ -1,5 +1,4 @@
-#ifndef H_K_FRAMEWORK_H
-#define H_K_FRAMEWORK_H
+#pragma once
 
 #include <Windows.h>
 #include <memory>
@@ -46,4 +45,3 @@ namespace Klibrary{
 
 } //Klibrary
 
-#endif

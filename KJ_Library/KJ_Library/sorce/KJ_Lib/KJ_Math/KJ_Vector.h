@@ -46,6 +46,10 @@ namespace Klibrary{
 	}
 
 	inline Vector2& Vector2::operator /=(float s){
+#ifdef _DEBUG
+		assert(s != 0);
+#endif
+
 		x /= s;
 		y /= s;
 		return *this;
@@ -149,6 +153,10 @@ namespace Klibrary{
 	}
 	
 	inline Vector3& Vector3::operator /=(float s){
+#ifdef _DEBUG
+		assert(s != 0);
+#endif
+
 		x /= s;
 		y /= s;
 		z /= s;
@@ -265,6 +273,10 @@ namespace Klibrary{
 	}
 	
 	inline Vector4& Vector4::operator /=(float s){
+#ifdef _DEBUG
+		assert(s != 0);
+#endif
+
 		x /= s;
 		y /= s;
 		z /= s;

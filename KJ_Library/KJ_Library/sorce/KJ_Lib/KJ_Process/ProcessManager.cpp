@@ -11,7 +11,7 @@ namespace Klibrary{
 	//========--------========--------========--------========--------========
 	//			全プロセス更新
 	//========--------========--------========--------========--------========
-	jUInt32 ProcessManager::UpdateProcesses(jUInt32 deltaMs){
+	jUInt32 ProcessManager::UpdateProcesses(const jUInt32 deltaMs){
 		jUInt16 successNum = 0;
 		jUInt16 failNum = 0;
 

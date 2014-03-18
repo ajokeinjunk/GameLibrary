@@ -48,12 +48,21 @@ namespace Klibrary{
 		};
 
 		//ÞŽ¿Ý’è
-		Material workM = {
-		0.1f, 0.1f, 0.1f, 1.0f,
-		1.0f, 0.4f, 0.4f, 1.0f,
-		0.0f, 0.0f, 1.0f, 1.0f,
-		15.0f
-		};
+		//Material workM = {
+		//0.1f, 0.1f, 0.1f, 1.0f,
+		//1.0f, 0.4f, 0.4f, 1.0f,
+		//0.0f, 0.0f, 1.0f, 1.0f,
+		//0.0f, 0.0f, 0.0f, 1.0f,
+		//15.0f
+		//};
+
+		ColorF diffuse = { 0.1f, 0.1f, 0.1f, 1.0f };
+		ColorF specular = { 1.0f, 0.4f, 0.4f, 1.0f };
+		ColorF ambient = { 0.0f, 0.0f, 1.0f, 1.0f };
+		ColorF emissive = { 0.0f, 0.0f, 0.0f, 1.0f };
+
+
+		Material workM(diffuse, ambient, specular, emissive, 15.0f);
 
 		m_meshInfo->SetMeshInformation(true, 8,workV, 12, workF, 1, &workM);
 
@@ -68,7 +77,6 @@ namespace Klibrary{
 		int numF = numPartition *numPartition * 2;     //–Ê”
 		Vector3* workV = new Vector3[numV];
 		Face3D* workP = new Face3D[numF];
-	
 
 		float wd = 2*w/numPartition;
 		float hd = 2*h/numPartition;
@@ -136,12 +144,19 @@ namespace Klibrary{
 
 	
 			//ÞŽ¿Ý’è
-		Material workM = {
-			0.1f, 0.1f, 0.1f, 0.1f,
-			0.2f, 0.2f, 0.2f, 1.0f,
-			0.5f, 1.5f, 0.5f, 1.0f,
-			15.0f
-		};
+		//Material workM = {
+		//	0.1f, 0.1f, 0.1f, 0.1f,
+		//	0.2f, 0.2f, 0.2f, 1.0f,
+		//	0.5f, 1.5f, 0.5f, 1.0f,
+		//	15.0f
+		//};
+		ColorF diffuse = { 0.1f, 0.1f, 0.1f, 1.0f };
+		ColorF specular = { 1.0f, 0.4f, 0.4f, 1.0f };
+		ColorF ambient = { 0.0f, 0.0f, 1.0f, 1.0f };
+		ColorF emissive = { 0.0f, 0.0f, 0.0f, 1.0f };
+
+
+		Material workM(diffuse, ambient, specular, emissive, 15.0f);
 
 		m_meshInfo->SetMeshInformation(true, numV,workV,numF,workP, 1, &workM);
 		delete[] workV;

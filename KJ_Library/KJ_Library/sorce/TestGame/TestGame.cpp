@@ -21,27 +21,21 @@ INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, INT){
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 	//_CrtSetBreakAlloc(158);
 
-	App::m_pGameFramework = new GameFramework();
+	App::m_pGameFramework = new BaseGameFramework();
 	HRESULT result = -1;
 
 	//ウィンドウ作成
 	result = InitializeWindow(hInstance, WINDOW_WIDTH, WINDOW_HEIGHT, "KJ_Library");
 
+
 	if (SUCCEEDED(result)){
-
-		//初期化
-		result = App::m_pGameFramework->GameStartUp();
-		App::m_pGameFramework->ChangeScene(SCENE_STATE::TEST1);
-
-		if (SUCCEEDED(result)){
-			//アプリループ
-			App::m_pGameFramework->GameBegin();
-		}
+		//アプリループ
+		App::m_pGameFramework->GameBegin();
 	}
 
 	if (App::m_pGameFramework){
 		App::m_pGameFramework->Release();
-		delete App::m_pGameFramework;
+		SAFE_DELETE(App::m_pGameFramework);
 	}
 	return 0;
 }

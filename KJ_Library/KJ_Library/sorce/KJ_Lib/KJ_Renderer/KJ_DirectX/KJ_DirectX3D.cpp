@@ -319,7 +319,7 @@ namespace Klibrary{
 	//--------------------------------------------------------
 	//			DirectXBeginRender
 	//-------------------------------------------------- ------
-	void KdirectX3D::BeginRender(){
+	void KdirectX3D::PreRender(){
 		//画面クリア(初期化)
 		ColorF clearColor = {0,0,0.0f,1.0f};
 		m_pDeviceContext->ClearRenderTargetView(m_pRenderTargetView, clearColor.argb);
@@ -342,7 +342,7 @@ namespace Klibrary{
 	//--------------------------------------------------------
 	//			DirectXEndRender
 	//--------------------------------------------------------
-	void KdirectX3D::EndRender(){		
+	void KdirectX3D::PostRender(){		
 
 		
 		//画面更新(バックバッファをフロントバッファにセット)

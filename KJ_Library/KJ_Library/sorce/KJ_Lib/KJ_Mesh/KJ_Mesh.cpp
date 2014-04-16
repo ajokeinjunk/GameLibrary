@@ -30,7 +30,7 @@ namespace Klibrary{
 	//			MeshNode(‰¼)ƒNƒ‰ƒX
 	//
 	//========--------========--------========--------========--------========
-	void MeshNode::Render(){
+	void MeshNode::VRender(){
 	
 	}
 

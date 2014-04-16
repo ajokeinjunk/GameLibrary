@@ -8,6 +8,7 @@
 #include <memory>
 #include <vector>
 #include <list>
+#include <unordered_map>
 
 namespace Klibrary{
 	class Actor;
@@ -19,15 +20,23 @@ namespace Klibrary{
 	//typedefしておくと便利。
 
 	typedef jUInt32 ActorID;
-	typedef jUInt32 ComponentID;
+	typedef jUInt32 ActorComponentID;
 	typedef jUInt32 GameViewID;
 	typedef jUInt8  MouseButtonType;
 
 	const ActorID    INVALID_ACTOR_ID = 0;
 	const GameViewID INVALID_GAME_VIEW_ID = 0xffffffff;
 
+	typedef std::string ActorType;
+	typedef std::string ActorComponentType;
+
 	typedef std::shared_ptr<Actor> ActorSharedPtr;
 	typedef std::weak_ptr<Actor> ActorWeakPtr;
+	typedef std::unordered_map<ActorID, ActorSharedPtr> ActorMap;
+	
+	typedef std::shared_ptr<IGameView> GameViewSharedPtr;
+	typedef std::weak_ptr<IGameView> GameViewWeakPtr;
+	typedef std::list<GameViewSharedPtr> GameViewList;
 
 	typedef std::shared_ptr<IScreenElement>   ScreenElementSharedPtr;
 	typedef std::list<ScreenElementSharedPtr> ScreenElementList;
@@ -61,11 +70,11 @@ namespace Klibrary{
 		* @brief 更新
 		* @param[in] deltaMs フレーム間の時間。単位はミリ秒。
 		*/
-		virtual void Update(const jUInt32 deltaMs) = 0;
+		virtual void VUpdate(const jUInt32 deltaMs) = 0;
 		/**
 		* @brief 描画
 		*/
-		virtual void Render() = 0;
+		virtual void VRender() = 0;
 
 	};
 
@@ -83,38 +92,42 @@ namespace Klibrary{
 		/**
 		* @brief 初期化
 		*/
-		virtual void Initialize(const char* filename) = 0;
-		/**
-		* @brief ゲーム情報読み込み
-		*/
-		virtual void LoadGame() = 0;
+		virtual void VInitialize() = 0;
+
 		/**
 		* @brief 更新
 		* @param[in] currentTime 現在の時間
 		* @param[in] elapsedTime 経過時間
 		*/
-		virtual void Update(float currentTime, float elapsedTime) = 0;
+		virtual void VUpdate(float elapsedTime) = 0;
+		/**
+		* @brief 描画
+		*/
+		virtual void VRender() = 0;
 		/**
 		* @brief 開放
 		*/
-		virtual void Release() = 0;
-
+		virtual void VRelease() = 0;
+		/**
+		* @brief ゲーム情報読み込み
+		*/
+		virtual void VLoadGame(const std::string& resourceFile) = 0;
 		/**
 		* @brief ゲームステイト変更
 		* @param[in] newState 次の新しいゲームステイトを入力する。
 		*/
-		virtual void ChangeGameState(enum BaseGameState newState) = 0;
+		virtual void VChangeGameState(enum BaseGameState newState) = 0;
 		/**
 		* @brief アクター作成
 		*/
-		virtual void CreateActor() = 0;
+		virtual ActorSharedPtr VCreateActor(const ActorType& type) = 0;
 		/**
 		* @brief アクタークリア
 		*/
-		virtual void DestroyActor(const ActorID actorID) = 0;
+		virtual void VDestroyActor(const ActorID actorID) = 0;
 
 		//ゲッター
-		virtual ActorWeakPtr GetActor(const ActorID actorID) = 0;
+		virtual ActorWeakPtr VGetActor(const ActorID actorID) = 0;
 	};
 
 	/**
@@ -138,6 +151,10 @@ namespace Klibrary{
 		virtual ~IGameView(){};
 
 		/**
+		* @brief 初期化
+		*/
+		virtual void VInitialize() = 0;
+		/**
 		* @brief 更新
 		* @param[in] deltaMs フレーム間の時間。単位はミリ秒。
 		*/
@@ -152,11 +169,14 @@ namespace Klibrary{
 		*/
 		virtual void CALLBACK VMsgProc() = 0;
 
+		/**
+		* @brief Viewを追加
+		*/
+		virtual void AttachActor(GameViewID gamaViewID, ActorID actorID) = 0;
+
 		//ゲッター
 		virtual GameViewID   VGetID() const = 0;
 		virtual GameViewType VGetType() const = 0;
-
-
 
 	};
 
@@ -168,6 +188,10 @@ namespace Klibrary{
 	public:
 		virtual ~IScreenElement(){}
 
+		/**
+		* @brief 初期化
+		*/
+		virtual void VInitialize();
 		/**
 		* @brief 更新
 		* @param[in] deltaMs フレーム間の時間。単位はミリ秒。
@@ -192,8 +216,13 @@ namespace Klibrary{
 		virtual jInt32  VGetZOrder()const = 0;
 	};
 
+	/** ===================================================================================
+	* @class IStateMachine
+	* @brief あらゆる状態遷移に対応する基底クラス
+	==================================================================================== */
+	class IStateMachine{
 
-
+	};
 	//========--------========--------========--------========--------========
 	//
 	//			拡張子があるファイルののローダーの基底
@@ -218,21 +247,21 @@ namespace Klibrary{
 		* @param[in] pos マウスの位置
 		* @param[in] radius マウスポインタの大きさの半径
 		*/
-		virtual bool  MouseMove(const Point2L &pos, jUInt8 radius) = 0;
+		virtual bool  VMouseMove(const Point2L &pos, jUInt8 radius) = 0;
 		/**
 		* @brief マウスボタンが上がる時の処理
 		* @param[in] pos マウスの位置
 		* @param[in] radius マウスポインタの大きさの半径
 		* @param[in] mouseButton マウスボタンの種類
 		*/
-		virtual bool  MouseButtonUp(const Point2L &pos, jUInt8 radius, MouseButton mouseButton) = 0;
+		virtual bool  VMouseButtonUp(const Point2L &pos, jUInt8 radius, MouseButton mouseButton) = 0;
 		/**
 		* @brief マウスボタンが下がる時の処理
 		* @param[in] pos マウスの位置
 		* @param[in] radius マウスポインタの大きさの半径
 		* @param[in] mouseButton マウスボタンの種類
 		*/
-		virtual bool  MouseButtonDown(const Point2L &pos, jUInt8 radius, MouseButton mouseButton) = 0;
+		virtual bool  VMouseButtonDown(const Point2L &pos, jUInt8 radius, MouseButton mouseButton) = 0;
 	};
 
 	/** ===================================================================================
@@ -246,12 +275,12 @@ namespace Klibrary{
 		* @brief キーが下がる時の処理
 		* @param[in] key WindowsMessageからのuChar変換によるキー入力
 		*/
-		virtual bool KeyDown(jUInt8 key) = 0;
+		virtual bool VKeyDown(jUInt8 key) = 0;
 		/**
 		* @brief キーが下上がる時の処理
 		* @param[in] key WindowsMessageからのuChar変換によるキー入力
 		*/
-		virtual bool KeyUp(jUInt8 key) = 0;
+		virtual bool VKeyUp(jUInt8 key) = 0;
 	};
 
 	/** ===================================================================================
@@ -261,11 +290,11 @@ namespace Klibrary{
 	==================================================================================== */
 	class IGamePadHandler{
 	public:
-		virtual bool Trigger(const std::string &triggerName, float const pressure) = 0;
-		virtual bool OnButtonDown(const std::string &buttonName, int const pressure) = 0;
-		virtual bool OnButtonUp(const std::string &buttonName) = 0;
-		virtual bool OnDirectionalPad(const std::string &direction) = 0;
-		virtual bool StickMove(const std::string &stickName, float x, float y) = 0;
+		virtual bool VTrigger(const std::string &triggerName, float const pressure) = 0;
+		virtual bool VButtonDown(const std::string &buttonName, int const pressure) = 0;
+		virtual bool VButtonUp(const std::string &buttonName) = 0;
+		virtual bool VDirectionalPad(const std::string &direction) = 0;
+		virtual bool VStickMove(const std::string &stickName, float x, float y) = 0;
 	};
 
 	//========--------========--------========--------========--------========

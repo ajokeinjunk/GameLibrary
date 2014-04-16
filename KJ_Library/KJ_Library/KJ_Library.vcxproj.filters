@@ -29,9 +29,6 @@
     <Filter Include="KJ_Library\Completed\KJ_Math">
       <UniqueIdentifier>{a117396a-1056-407f-8ce0-9f976dbd79ad}</UniqueIdentifier>
     </Filter>
-    <Filter Include="KJ_Library\Completed\KJ_GenericPrg">
-      <UniqueIdentifier>{83b2ec03-86e5-4f7a-893e-805bf1063a73}</UniqueIdentifier>
-    </Filter>
     <Filter Include="KJ_Library\Completed\KJ_Defines">
       <UniqueIdentifier>{96c17797-43d0-4399-b087-05086b3c64e5}</UniqueIdentifier>
     </Filter>
@@ -170,6 +167,18 @@
     <Filter Include="KJ_Library\CurrentJob\KJ_GameLogic\KJ_SceneGraph\KJ_SceneNode">
       <UniqueIdentifier>{6ac20fd4-d6db-494d-a33a-798ca08096b8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="KJ_Library\CurrentJob\KJ_GameLogic\KJ_Option">
+      <UniqueIdentifier>{ed6242b5-10b2-42ea-b627-681f56142ca0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KJ_Library\Completed\KJ_Defines\KJ_GenericPrg">
+      <UniqueIdentifier>{83b2ec03-86e5-4f7a-893e-805bf1063a73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KJ_Library\CurrentJob\KJ_GameLogic\KJ_Actor\ActorComponents">
+      <UniqueIdentifier>{8b739f2e-d3a1-4228-ade7-28218eb7a80e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="外部ソース">
+      <UniqueIdentifier>{29116778-9242-4615-b13f-686a8394a68a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sorce\KJ_Lib\TextLoader\textLoader.cpp">
@@ -304,6 +313,18 @@
     <ClCompile Include="sorce\KJ_Lib\KJ_View\GameView.cpp">
       <Filter>KJ_Library\CurrentJob\KJ_GameLogic\KJ_GameView</Filter>
     </ClCompile>
+    <ClCompile Include="sorce\KJ_Lib\KJ_Option\option.cpp">
+      <Filter>KJ_Library\CurrentJob\KJ_GameLogic\KJ_Option</Filter>
+    </ClCompile>
+    <ClCompile Include="sorce\KJ_Lib\KJ_Actor\ActorFactory.cpp">
+      <Filter>KJ_Library\CurrentJob\KJ_GameLogic\KJ_Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="sorce\KJ_Lib\KJ_Actor\Actor.cpp">
+      <Filter>KJ_Library\CurrentJob\KJ_GameLogic\KJ_Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="sorce\KJ_Lib\KJ_Actor\KJ_ActorComponents\TransformComponent.cpp">
+      <Filter>KJ_Library\CurrentJob\KJ_GameLogic\KJ_Actor\ActorComponents</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sorce\KJ_Lib\TextLoader\textLoader.h">
@@ -343,7 +364,7 @@
       <Filter>KJ_Library\CurrentJob\KJ_3DGraphic\KJ_Renderer\KdirectX</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_GenericPrg\KJ_GenericPrg.h">
-      <Filter>KJ_Library\Completed\KJ_GenericPrg</Filter>
+      <Filter>KJ_Library\Completed\KJ_Defines\KJ_GenericPrg</Filter>
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_Debug\KJ_Debug.h">
       <Filter>KJ_Library\Completed\KJ_Debug</Filter>
@@ -509,6 +530,24 @@
     </ClInclude>
     <ClInclude Include="sorce\KJ_Lib\KJ_View\GameView.h">
       <Filter>KJ_Library\CurrentJob\KJ_GameLogic\KJ_GameView</Filter>
+    </ClInclude>
+    <ClInclude Include="sorce\KJ_Lib\KJ_Option\Option.h">
+      <Filter>KJ_Library\CurrentJob\KJ_GameLogic\KJ_Option</Filter>
+    </ClInclude>
+    <ClInclude Include="sorce\KJ_Lib\KJ_Actor\ActorFactory.h">
+      <Filter>KJ_Library\CurrentJob\KJ_GameLogic\KJ_Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="sorce\KJ_Lib\KJ_GenericPrg\KJ_Template.h">
+      <Filter>KJ_Library\Completed\KJ_Defines\KJ_GenericPrg</Filter>
+    </ClInclude>
+    <ClInclude Include="sorce\KJ_Lib\KJ_Actor\ActorComponent.h">
+      <Filter>KJ_Library\CurrentJob\KJ_GameLogic\KJ_Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="sorce\KJ_Lib\KJ_Actor\KJ_ActorComponents\TransformComponent.h">
+      <Filter>KJ_Library\CurrentJob\KJ_GameLogic\KJ_Actor\ActorComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="sorce\KJ_Lib\KJ_GameLogic\BaseGameState.h">
+      <Filter>KJ_Library\CurrentJob\KJ_GameLogic\KJ_GameLogic</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

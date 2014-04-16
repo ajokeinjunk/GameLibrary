@@ -8,15 +8,17 @@ namespace Klibrary{
 
 	typedef std::list<ProcessSharedPtr> ProcessList;
 
-	//========--------========--------========--------========--------========
-	//
-	//			ProcessManagerクラス
-	//
-	//========--------========--------========--------========--------========
 	class ProcessManager;
 	typedef std::shared_ptr<ProcessManager> ProcessManagerSharedPtr;
 	typedef std::weak_ptr<ProcessManager> ProcessManagerWeakPtr;
 	
+
+	/*========--------========--------========--------========--------========--------========--------*/
+	/*! @class ProcessManager
+	@brief 個別に処理させたい動作をProcessとして作成し
+	それらを統括して管理するクラス
+	*/
+	/*========--------========--------========--------========--------========--------========--------*/
 	class ProcessManager
 	{
 	private:

@@ -6,7 +6,7 @@
 namespace Klibrary{
 	class App{
 	public:
-		static GameFramework* m_pGameFramework;
+		static BaseGameFramework* m_pGameFramework;
 	};
 }
 

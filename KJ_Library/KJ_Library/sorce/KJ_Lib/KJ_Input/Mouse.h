@@ -38,6 +38,7 @@ namespace Klibrary{
 
 	public:
 		Mouse(){
+			SetCursor(NULL);
 			m_Enable = true;
 			m_FreezeOnCenter = false;
 			m_Show = true;

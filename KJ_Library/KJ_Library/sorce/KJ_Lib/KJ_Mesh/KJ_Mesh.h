@@ -21,7 +21,7 @@ namespace Klibrary{
 		MeshNode(ActorID actorID, char* meshFileName, RenderPass renderPass, const Matrix4& toWorld) :Scene3DNode(actorID, renderPass, toWorld){
 			m_MeshFileName = meshFileName;
 		}
-		virtual void Render() override;
+		virtual void VRender() override;
 	};
 
 	//========--------========--------========--------========--------========

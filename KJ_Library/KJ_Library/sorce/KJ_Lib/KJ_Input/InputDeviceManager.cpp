@@ -8,6 +8,7 @@ namespace Klibrary{
 
 	void InputDeviceManager::Initialize(){
 		m_ActivateDevice |= ALL_ENABLE;
+
 	}
 
 	void InputDeviceManager::Update(jUInt32 deltaMs){

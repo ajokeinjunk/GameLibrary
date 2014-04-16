@@ -109,7 +109,7 @@ namespace Klibrary{
 
 		//単項
 		inline float& operator [](BYTE i);
-		inline float operator [](BYTE i)const;
+		inline float  operator [](BYTE i)const;
 
 		//2項
 		inline const Vector3 operator +(const Vector3& v)const;
@@ -126,6 +126,10 @@ namespace Klibrary{
 	//Vector3関数
 	inline float Vec3Dot(const Vector3& v1, const Vector3& v2);
 	inline void Vec3Cross(Vector3& out, const Vector3& v1, const Vector3& v2);
+
+	inline void Vec3XRotationVector(const Vector3& out, float radPitch);
+	inline void Vec3YRotationVector(const Vector3& out, float radYaw);
+	inline void Vec3ZRotationVector(const Vector3& out, float radRoll);
 
 	//----------------------------------------------------------------------------------------------------------------------------
 	//		Vector4クラス
@@ -384,6 +388,19 @@ namespace Klibrary{
 		inline void Identify();
 		inline void Inverse();
 		inline void Inverse(Matrix4& out);
+
+		//セッター
+		inline void SetPosition(const Vector3& position);
+		inline void SetScale(const Vector3& scale);
+
+		//ゲッター
+		inline void GetPosition(Vector3& position);
+		inline void GetScale(Vector3& scale);
+
+		inline void GetRightDirection(Vector3& right);
+		inline void GetUpDirection(Vector3& up);
+		inline void GetForwardDirection(Vector3& forward);
+
 	};
 
 	//Matrix4関数

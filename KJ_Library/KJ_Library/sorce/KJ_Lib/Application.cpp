@@ -2,5 +2,5 @@
 
 namespace Klibrary{
 
-	GameFramework* App::m_pGameFramework = nullptr;
+	BaseGameFramework* App::m_pGameFramework = nullptr;
 }

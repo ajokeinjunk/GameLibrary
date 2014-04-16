@@ -6,28 +6,105 @@
 #include "../KJ_Scene/AllScenes/TestScene.h"
 #include "../KJ_Input/InputDeviceManager.h"
 
-
 #pragma warning(disable:4482)
 
-//========--------========--------========--------========--------========
-//
-//			GameFrameworkクラス
-//
-//========--------========--------========--------========--------========
 namespace Klibrary{
 
+	//========--------========--------========--------========--------========
+	//
+	//			BaseGameFrameworkクラス
+	//
+	//========--------========--------========--------========--------========
+	BaseGameFramework::BaseGameFramework(){
+		m_pGameLogic = nullptr;
+	}
 
+	BaseGameFramework::~BaseGameFramework(){
+		Release();
+	}
+
+	void BaseGameFramework::GameBegin(){
+		GameStartUp();
+		GameLoop();
+	}
+
+	HRESULT BaseGameFramework::GameStartUp(){
+		//初期化処理を記述
+		//GameLogic設定
+		//最初期に設定するViewなども設定する
+		InputDeviceManager::Initialize();
+		RenderSystem::Initialize();
+		m_pGameLogic = CreateGame();
+
+		return S_OK;
+	}
+
+	bool BaseGameFramework::GameLoop(){
+		//メッセージループ
+		MSG msg = { 0 };
+
+		while (msg.message != WM_QUIT){
+
+			if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
+			{
+				TranslateMessage(&msg);
+				DispatchMessage(&msg);
+			}
+			else{
+				//アプリへの処理
+				if (Update()){
+					Render();
+				}
+			}
+		}
+
+
+		return true;
+	}
+	BaseGameLogic* BaseGameFramework::CreateGame(){
+		BaseGameLogic* gameLogic = nullptr;
+		gameLogic = new BaseGameLogic();
+		gameLogic->VInitialize();
+
+		return gameLogic;
+	}
+
+
+	bool BaseGameFramework::Update(){
+
+		InputDeviceManager::Update(SPF);
+		int time = timeGetTime();
+		time = time;
+		//m_pGameLogic->VUpdate();
+		return true;
+	}
+
+	void BaseGameFramework::Render(){
+		m_pGameLogic->VRender();
+	}
+
+	void BaseGameFramework::Release(){
+		RenderSystem::Release();
+		SAFE_DELETE(m_pGameLogic);
+	}
+
+
+	//========--------========--------========--------========--------========
+	//
+	//			GameFrameworkクラス
+	//
+	//========--------========--------========--------========--------========
 	void GameFramework::GameBegin(){
-
 		GameLoop();
 	}
 
 	GameFramework::GameFramework(){
-		m_scene = nullptr;
+		m_pGameLogic = nullptr;
 	}
 
 	GameFramework::~GameFramework(){
 		Release();
+
 	}
 
 
@@ -37,12 +114,10 @@ namespace Klibrary{
 
 		//RenderSystem::GetRenderer() = KrendererFactory::CreateRenderer(KrendererType::DirectX11);
 		RenderSystem::Initialize();
-		HRESULT result = RenderSystem::GetRenderer()->Initialize();
 
-		if(m_scene != nullptr)m_scene->Initialize();
+		if(m_pScene.get() != nullptr)m_pScene->Initialize();
 
-
-		return result;
+		return S_OK;
 	}
 
 	void GameFramework::GameLoop(){
@@ -67,37 +142,35 @@ namespace Klibrary{
 
 	bool GameFramework::Update(){
 		InputDeviceManager::Update(SPF);
-		if(m_scene != nullptr)m_scene->Update();
+		if (m_pScene.get() != nullptr)m_pScene->Update();
 
 		return true;
 	}
 
 	void GameFramework::Render(){
 		//レンダーの初めに画面初期化
-		RenderSystem::GetRenderer()->BeginRender();
+		RenderSystem::GetRenderer()->PreRender();
 		
-		if(m_scene != nullptr) m_scene->Render();
+		if (m_pScene.get() != nullptr) m_pScene->Render();
 		
 
 		//レンダー終りにSwapChain
-		RenderSystem::GetRenderer()->EndRender();
+		RenderSystem::GetRenderer()->PostRender();
 	}
 
 	bool GameFramework::ChangeScene(SCENE_STATE state){
-		if(m_scene)SAFE_DELETE(m_scene);
-		m_scene = new TestScene();
-		m_scene->Initialize();
+		m_pScene = std::make_shared<TestScene>();
+		m_pScene->Initialize();
 		return true;
 	}
 
 	bool GameFramework::ChangeSceneWhileLoading(SCENE_STATE state){
-		if(m_scene)SAFE_DELETE(m_scene);
 		return true;
 	}
 
 	void GameFramework::Release(){
 		RenderSystem::Release();
-		SAFE_DELETE(m_scene);
+		SAFE_DELETE(m_pGameLogic);
 	}
 
 } //namespace

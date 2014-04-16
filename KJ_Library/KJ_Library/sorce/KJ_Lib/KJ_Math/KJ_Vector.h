@@ -220,6 +220,25 @@ namespace Klibrary{
 		out.z = v1.x * v2.y - v1.y * v2.x;
 	}
 
+	inline void Vec3XRotationVector(Vector3& forward, float radPitch){
+		forward.x = 0;
+		forward.y = -sinf(radPitch);
+		forward.z = cosf(radPitch);
+	}
+
+	inline void Vec3YRotationVector(Vector3& forward, float radYaw){
+		forward.x = sinf(radYaw);
+		forward.y = 0;
+		forward.z = cosf(radYaw);
+	}
+
+	inline void Vec3ZRotationVector(Vector3& up, float radRoll){
+		up.x = -sinf(radRoll);
+		up.y = cosf(radRoll);
+		up.z = 0;
+	}
+
+
 //----------------------------------------------------------------------------------------------------------------------------
 //		Vector4ƒNƒ‰ƒX
 //----------------------------------------------------------------------------------------------------------------------------

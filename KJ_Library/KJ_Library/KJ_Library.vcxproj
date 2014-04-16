@@ -21,6 +21,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -87,6 +88,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="sorce\KJ_Lib\Application.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Actor\Actor.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Actor\ActorFactory.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Actor\KJ_ActorComponents\TransformComponent.cpp" />
     <ClCompile Include="sorce\KJ_Lib\KJ_Animation2D\Animation2D.cpp" />
     <ClCompile Include="sorce\KJ_Lib\KJ_Animation2D\Animtaion2DManager.cpp" />
     <ClCompile Include="sorce\KJ_Lib\KJ_Animation2D\InputAnimtionData.cpp" />
@@ -111,6 +115,7 @@
     <ClCompile Include="sorce\KJ_Lib\KJ_Mesh\KJ_MeshLoader\MQO.cpp" />
     <ClCompile Include="sorce\KJ_Lib\KJ_Mesh\MeshProperty.cpp" />
     <ClCompile Include="sorce\KJ_Lib\KJ_Mesh\KJ_SkinMesh\KJ_SkinMesh.cpp" />
+    <ClCompile Include="sorce\KJ_Lib\KJ_Option\option.cpp" />
     <ClCompile Include="sorce\KJ_Lib\KJ_Process\Process.cpp" />
     <ClCompile Include="sorce\KJ_Lib\KJ_Process\ProcessManager.cpp" />
     <ClCompile Include="sorce\KJ_Lib\KJ_Renderer\KJ_DirectX\KJ_DirectX3D.cpp" />
@@ -138,6 +143,9 @@
     <ClInclude Include="Shader\PSMethodDefinition.h" />
     <ClInclude Include="sorce\KJ_Lib\Application.h" />
     <ClInclude Include="sorce\KJ_Lib\KJ_Actor\Actor.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Actor\ActorComponent.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Actor\ActorFactory.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Actor\KJ_ActorComponents\TransformComponent.h" />
     <ClInclude Include="sorce\KJ_Lib\KJ_Animation2D\Animation2D.h" />
     <ClInclude Include="sorce\KJ_Lib\KJ_Animation2D\Animation2DManager.h" />
     <ClInclude Include="sorce\KJ_Lib\KJ_Animation2D\InputAnimation2D.h" />
@@ -148,9 +156,11 @@
     <ClInclude Include="sorce\KJ_Lib\KJ_Defines\KJ_Defines.h" />
     <ClInclude Include="sorce\KJ_Lib\KJ_File\KJ_File.h" />
     <ClInclude Include="sorce\KJ_Lib\KJ_Framework\KJ_Framework.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_GameLogic\BaseGameState.h" />
     <ClInclude Include="sorce\KJ_Lib\KJ_GameLogic\KJ_BaseGameLogic3D\BaseGameLogic.h" />
     <ClInclude Include="sorce\KJ_Lib\KJ_GameObject\KJ_GameObject.h" />
     <ClInclude Include="sorce\KJ_Lib\KJ_GenericPrg\KJ_GenericPrg.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_GenericPrg\KJ_Template.h" />
     <ClInclude Include="sorce\KJ_Lib\KJ_Graph\Graph\Graph.h" />
     <ClInclude Include="sorce\KJ_Lib\KJ_Graph\NodeEdge\NodeEdge.h" />
     <ClInclude Include="sorce\KJ_Lib\KJ_Input\InputDevice.h" />
@@ -172,6 +182,7 @@
     <ClInclude Include="sorce\KJ_Lib\KJ_Mesh\Material.h" />
     <ClInclude Include="sorce\KJ_Lib\KJ_Mesh\MeshProperty.h" />
     <ClInclude Include="sorce\KJ_Lib\KJ_Mesh\KJ_SkinMesh\KJ_SkinMesh.h" />
+    <ClInclude Include="sorce\KJ_Lib\KJ_Option\Option.h" />
     <ClInclude Include="sorce\KJ_Lib\KJ_Process\Process.h" />
     <ClInclude Include="sorce\KJ_Lib\KJ_Process\ProcessManager.h" />
     <ClInclude Include="sorce\KJ_Lib\KJ_Renderer\KJ_DirectX\KJ_DirectX3D.h" />

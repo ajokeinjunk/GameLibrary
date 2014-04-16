@@ -4,6 +4,8 @@
 #include "../KJ_Process/ProcessManager.h"
 
 namespace Klibrary{
+	const jUInt32 SCREEN_REFRESH_RATE(1000 / 60);
+
 	/** ===================================================================================
 	* @class HumanView
 	* @brief プレイヤー(操作者)に対して必要なものを用意するViewクラス
@@ -24,7 +26,6 @@ namespace Klibrary{
 		//!< @brief Viewに対するキーボードハンドラー
 		std::shared_ptr<IKeyBoardHandler> m_KeyBoardHandler;
 
-
 	protected:
 		//!< @brief このViewのID
 		GameViewID              m_ID;
@@ -36,10 +37,18 @@ namespace Klibrary{
 		ProcessManagerSharedPtr m_ProcessManager;
 		//!< @brief ScreentElementの画面要素を持つ。ptrじゃなくていい？
 		ScreenElementList       m_ScreenElementList;
+		//!< @brief  現在の時間
+		jUInt32                 m_CurrentTime;
+		//!< @brief  最終描画時の時間
+		jUInt32                 m_LastDrawTime;
+
 	public:
 		HumanView();
 		virtual ~HumanView();
-
+		/**
+		* @brief 初期化
+		*/
+		void VInitialize() override;
 		/**
 		* @brief 更新
 		* @param[in] deltaMs フレーム間の時間。単位はミリ秒。
@@ -53,6 +62,14 @@ namespace Klibrary{
 		* @brief WindowsのMsgprocから呼び出されるコールバック関数
 		*/
 		virtual void CALLBACK VMsgProc() override;
+
+		/**
+		* @brief Viewを追加
+		*/
+		virtual void AttachActor(GameViewID gamaViewID, ActorID actorID){
+			m_ActorID = actorID;
+			m_ID = gamaViewID;
+		}
 
 		//ゲッター
 		virtual GameViewType     GetType()const{ return GameView_Human; }

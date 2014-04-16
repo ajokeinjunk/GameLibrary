@@ -38,6 +38,7 @@ namespace Klibrary{
 				{
 				case Process::DEAD_SUCCEEDED:
 					pCurrentProcess->VSuccess();
+					pChild = pCurrentProcess->GetChild();
 					if (pChild){
 						AttachProcesses(pChild); //FIFO
 					}

@@ -99,8 +99,8 @@ namespace Klibrary{
 		~KdirectX3D();
 	
 		HRESULT Initialize();
-		void BeginRender();
-		void EndRender();
+		void PreRender();
+		void PostRender();
 
 		void RenderIndexed(DWORD numIndex);
 		void Render(DWORD numVertex);

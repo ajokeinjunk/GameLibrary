@@ -371,6 +371,57 @@ namespace Klibrary{
 		out.Inverse();
 	}
 
+	//セッター
+	inline void Matrix4::SetPosition(const Vector3& position){
+		m4.x = position.x;
+		m4.y = position.y;
+		m4.z = position.z;
+
+	}
+
+	inline void Matrix4::SetScale(const Vector3& scale){
+
+		m[1][1] = scale.x;
+		m[2][2] = scale.y;
+		m[3][3] = scale.z;
+
+	}
+
+	//ゲッター
+	inline void Matrix4::GetPosition(Vector3& position){
+		position.x = m[3][0];
+		position.y = m[3][1];
+		position.z = m[3][2];
+
+	}
+
+	inline void Matrix4::GetScale(Vector3& scale){
+		scale.x = m[1][1];
+		scale.y = m[2][2];
+		scale.z = m[3][3];
+	}
+
+	inline void Matrix4::GetRightDirection(Vector3& right){
+		right.x = m1.x;
+		right.y = m1.y;
+		right.z = m1.z;
+		right.Normalize();
+	}
+
+	inline void Matrix4::GetUpDirection(Vector3& up){
+		up.x = m2.x;
+		up.y = m2.y;
+		up.z = m2.z;
+		up.Normalize();
+	}
+
+	inline void Matrix4::GetForwardDirection(Vector3& forward){
+		forward.x = m3.x;
+		forward.y = m3.y;
+		forward.z = m3.z;
+		forward.Normalize();
+	}
+
 //========--------========--------========--------========--------========
 //
 //			Matrix4関数

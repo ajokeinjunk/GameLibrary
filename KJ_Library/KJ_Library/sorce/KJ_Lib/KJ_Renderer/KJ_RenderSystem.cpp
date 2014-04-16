@@ -11,6 +11,7 @@ namespace Klibrary{
 	//========--------========--------========--------========--------========
 	bool RenderSystem::Initialize(){
 		m_renderer = std::make_shared<KdirectX3D>();
+		m_renderer->Initialize();
 		return true;
 	}
 

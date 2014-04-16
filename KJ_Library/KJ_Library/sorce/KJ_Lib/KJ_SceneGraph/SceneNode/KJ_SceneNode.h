@@ -85,11 +85,11 @@ namespace Klibrary{
 		/**
 		* @brief 更新
 		*/
-		void Update(const jUInt32 deltaMs) override;
+		void VUpdate(const jUInt32 deltaMs) override;
 		/**
 		* @brief 描画
 		*/
-		void Render() override;
+		void VRender() override;
 		
 		/**
 		* @brief 変換行列を設定する。ローカルへの変換行列は内部で設定される。
@@ -130,6 +130,6 @@ namespace Klibrary{
 		/**
 		* @brief 描画
 		*/
-		void Render() override;
+		void VRender() override;
 	};
 }

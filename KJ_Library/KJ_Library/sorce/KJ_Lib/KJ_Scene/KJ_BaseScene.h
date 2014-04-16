@@ -1,8 +1,9 @@
 #ifndef H_KLIB_BASE_SCENE_H
 #define H_KLIB_BASE_SCENE_H
 
-namespace Klibrary{
+#include <memory>
 
+namespace Klibrary{
 
 	class BaseScene{
 	private:
@@ -21,6 +22,10 @@ namespace Klibrary{
 
 		inline bool GetIsInitialized(){return m_IsInitialized;}
 	};
+
+	typedef std::shared_ptr<BaseScene> SceneSharedPtr;
+	typedef std::weak_ptr<BaseScene> SceneWeakPtr;
+
 }
 
 #endif

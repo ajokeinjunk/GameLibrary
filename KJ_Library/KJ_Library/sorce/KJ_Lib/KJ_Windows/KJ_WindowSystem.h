@@ -39,6 +39,22 @@ namespace Klibrary{
 		inline static float GetScreenAspectRatio(){return (float)windowWidth/windowHeight;}
 	};
 
+	class WindowSystem2{
+	public:
+		WindowSystem2() :m_WindowHeight(0), m_WindowWidth(0){}
+
+		//!< @brief ウィンドウの高さ
+		WORD m_WindowHeight;
+		//!< @brief ウィンドウの幅
+		WORD m_WindowWidth;
+		//!< @brief ウィンドウハンドル
+		HWND m_hWnd;
+		//!< @brief ウィンドウがフルスクリーンモードかどうか
+		bool m_IsFullScreen;
+
+		//ゲッター
+		inline float GetScreenAspectRatio(){ return (float)m_WindowWidth / m_WindowHeight; }
+	};
 	/** ===================================================================================
 	* @class WindowsMsg
 	* @brief Windowから送られてくるメッセージの構造体

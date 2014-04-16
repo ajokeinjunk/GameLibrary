@@ -7,17 +7,17 @@ namespace Klibrary{
 	//			Scene3DNodeクラス
 	//
 	//========--------========--------========--------========--------========
-	void Scene3DNode::Update(const jUInt32 deltaMs){
+	void Scene3DNode::VUpdate(const jUInt32 deltaMs){
 		auto i = m_Children.begin();
 		auto end = m_Children.end();
 
 		while (i != end){
-			(*i)->Update(deltaMs);
+			(*i)->VUpdate(deltaMs);
 			++i;
 		}
 	}
 
-	void Scene3DNode::Render(){
+	void Scene3DNode::VRender(){
 	}
 
 	//========--------========--------========--------========--------========
@@ -25,7 +25,7 @@ namespace Klibrary{
 	//			CameraNodeクラス
 	//
 	//========--------========--------========--------========--------========
-	void CameraNode::Render(){
+	void CameraNode::VRender(){
 #ifdef _DEBUG
 		m_Frustum.DebugRender();
 #endif
